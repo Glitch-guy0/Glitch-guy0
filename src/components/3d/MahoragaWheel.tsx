@@ -66,16 +66,16 @@ export const MahoragaWheel: React.FC<MahoragaWheelProps> = ({ isLoaded, onClick 
     // To see it "top-view", we must rotate the group on X-axis by 90 degrees (Math.PI / 2).
     // To see it "horizontal front-view with slight tilt back", we rotate it on X-axis to MathUtils.degToRad(-10) or MathUtils.degToRad(10). Let's use 10 degrees for tilt-up, or just ~10 degrees relative to XZ plane.
 
-    // Set to 8 degrees as specifically requested to tilt it slightly forward relative to the camera
-    const tiltRadians = MathUtils.degToRad(8); // Tilt slightly forward
-    const targetRotX = isLoaded ? tiltRadians : Math.PI / 2;
+    // Set to 0 degrees on X-axis (perfectly horizontal) as if hovering over a person.
+    const targetRotX = isLoaded ? 0 : Math.PI / 2;
 
     // Smoothly interpolate position and tilt (X-axis)
     group.position.lerp(targetPos, delta * 2);
     group.rotation.x = MathUtils.lerp(group.rotation.x, targetRotX, delta * 2);
 
     // 2. Spinning Logic (Y-axis now, since it's built horizontally)
-    const targetRotY = MathUtils.degToRad(internalRotation);
+    // Add 7 degrees base offset on Y-axis to give it an off-center "floating" look.
+    const targetRotY = MathUtils.degToRad(internalRotation + 7);
 
     // If not loaded, spin continuously
     if (!isLoaded) {
