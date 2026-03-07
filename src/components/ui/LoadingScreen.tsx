@@ -46,7 +46,8 @@ export const LoadingScreen: React.FC = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-          className="w-32 h-32 md:w-48 md:h-48 text-white drop-shadow-lg"
+          // Scale SVG to visually match 3D wheel size (roughly ~40-50% of viewport min dimension)
+          className="w-[45vmin] h-[45vmin] max-w-[300px] max-h-[300px] text-white drop-shadow-lg"
         >
           <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2">
             {/* Outer Ring */}

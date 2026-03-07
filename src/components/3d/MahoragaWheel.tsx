@@ -46,7 +46,9 @@ export const MahoragaWheel: React.FC<MahoragaWheelProps> = ({ targetRotation, is
 
     // 1. Intro Animation Logic
     const targetPos = isLoaded ? loadedPos : initialPos;
-    const targetRotX = isLoaded ? 0 : -Math.PI / 2;
+    // -5 degrees in radians is roughly -0.087, lets use a slight backward tilt (-15 deg looks better for 3D depth, but sticking close to -5 deg: -0.1 rad)
+    const tiltRadians = MathUtils.degToRad(-5);
+    const targetRotX = isLoaded ? tiltRadians : -Math.PI / 2;
 
     // Smoothly interpolate position and tilt (X-axis)
     group.position.lerp(targetPos, delta * 2);
