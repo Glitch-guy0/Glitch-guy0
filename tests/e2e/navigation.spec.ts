@@ -38,12 +38,8 @@ test.describe('Navigation', () => {
 
       await page.waitForTimeout(1000);
 
-      // Try clicking a few points around the center to ensure we hit the 3D model
+      // Click the center of the wheel once
       await page.mouse.click(x, y);
-      await page.waitForTimeout(200);
-      await page.mouse.click(x, y + 20);
-      await page.waitForTimeout(200);
-      await page.mouse.click(x, y - 20);
     }
 
     // Wait for navigation to /frontend
