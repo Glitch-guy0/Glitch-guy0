@@ -48,7 +48,6 @@ function RootComponent() {
 
       <Scene
         isLoaded={isLoaded}
-        targetRotation={currentConfig.rotation}
         onWheelClick={handleWheelClick}
       />
 

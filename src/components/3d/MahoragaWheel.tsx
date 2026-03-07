@@ -4,8 +4,6 @@ import { Group, MathUtils, Vector3, MeshStandardMaterial, Color } from 'three';
 import { Float } from '@react-three/drei';
 
 interface MahoragaWheelProps {
-  /** The target rotation angle in degrees around the Y-axis (spinning). */
-  targetRotation: number;
   /** Whether the loading phase is complete and intro animation should start. */
   isLoaded: boolean;
   /** Callback when the wheel is clicked. */
@@ -16,8 +14,11 @@ interface MahoragaWheelProps {
  * 3D Component representing the Mahoraga Wheel.
  * Handles its own intro animation and smooth rotation.
  */
-export const MahoragaWheel: React.FC<MahoragaWheelProps> = ({ targetRotation, isLoaded, onClick }) => {
+export const MahoragaWheel: React.FC<MahoragaWheelProps> = ({ isLoaded, onClick }) => {
   const groupRef = useRef<Group>(null);
+
+  // Local state to track the wheel's independent rotation
+  const [internalRotation, setInternalRotation] = useState(0);
 
   // Create material safely using useState to ensure fresh instance on mount
   const [goldMaterial] = useState(() => new MeshStandardMaterial({
@@ -65,8 +66,8 @@ export const MahoragaWheel: React.FC<MahoragaWheelProps> = ({ targetRotation, is
     // To see it "top-view", we must rotate the group on X-axis by 90 degrees (Math.PI / 2).
     // To see it "horizontal front-view with slight tilt back", we rotate it on X-axis to MathUtils.degToRad(-10) or MathUtils.degToRad(10). Let's use 10 degrees for tilt-up, or just ~10 degrees relative to XZ plane.
 
-    // Set to 5 degrees as specifically requested to tilt it slightly forward relative to the camera
-    const tiltRadians = MathUtils.degToRad(5); // Tilt slightly forward
+    // Set to 8 degrees as specifically requested to tilt it slightly forward relative to the camera
+    const tiltRadians = MathUtils.degToRad(8); // Tilt slightly forward
     const targetRotX = isLoaded ? tiltRadians : Math.PI / 2;
 
     // Smoothly interpolate position and tilt (X-axis)
@@ -74,21 +75,29 @@ export const MahoragaWheel: React.FC<MahoragaWheelProps> = ({ targetRotation, is
     group.rotation.x = MathUtils.lerp(group.rotation.x, targetRotX, delta * 2);
 
     // 2. Spinning Logic (Y-axis now, since it's built horizontally)
-    const targetRotY = MathUtils.degToRad(targetRotation);
+    const targetRotY = MathUtils.degToRad(internalRotation);
 
     // If not loaded, spin continuously
     if (!isLoaded) {
       group.rotation.y += delta * 2;
     } else {
-      // If loaded, rotate to target
+      // If loaded, rotate to independent local target
       group.rotation.y = MathUtils.lerp(group.rotation.y, targetRotY, delta * 3);
     }
   });
 
+  const handlePointerClick = (e: any) => {
+    e.stopPropagation();
+    // Increment internal rotation by 45 degrees independently
+    setInternalRotation((prev) => prev + 45);
+    // Trigger external routing logic
+    onClick();
+  };
+
   return (
     <group
       ref={groupRef}
-      onClick={(e) => { e.stopPropagation(); onClick(); }}
+      onClick={handlePointerClick}
       onPointerOver={() => { document.body.style.cursor = 'pointer'; }}
       onPointerOut={() => { document.body.style.cursor = 'auto'; }}
     >

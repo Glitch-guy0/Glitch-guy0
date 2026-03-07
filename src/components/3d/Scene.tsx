@@ -6,8 +6,6 @@ import { MahoragaWheel } from './MahoragaWheel';
 interface SceneProps {
   /** Whether the initial loading phase is complete. */
   isLoaded: boolean;
-  /** The target rotation angle for the wheel (in degrees). */
-  targetRotation: number;
   /** Callback when the wheel is clicked. */
   onWheelClick: () => void;
 }
@@ -16,7 +14,7 @@ interface SceneProps {
  * The main 3D Scene component.
  * Sets up the Canvas, Lights, and Environment.
  */
-export const Scene: React.FC<SceneProps> = ({ isLoaded, targetRotation, onWheelClick }) => {
+export const Scene: React.FC<SceneProps> = ({ isLoaded, onWheelClick }) => {
   return (
     <div className="absolute inset-0 w-full h-full -z-10 bg-transparent pointer-events-auto">
       <Canvas
@@ -39,7 +37,6 @@ export const Scene: React.FC<SceneProps> = ({ isLoaded, targetRotation, onWheelC
           {/* The Wheel */}
           <MahoragaWheel
             isLoaded={isLoaded}
-            targetRotation={targetRotation}
             onClick={onWheelClick}
           />
 
