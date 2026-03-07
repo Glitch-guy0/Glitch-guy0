@@ -34,8 +34,16 @@ test.describe('Navigation', () => {
     const viewportSize = page.viewportSize();
     if (viewportSize) {
       const x = viewportSize.width / 2;
-      const y = viewportSize.height * 0.3; // 30% from top
+      const y = viewportSize.height * 0.35; // Trying 35% from top
+
+      await page.waitForTimeout(1000);
+
+      // Try clicking a few points around the center to ensure we hit the 3D model
       await page.mouse.click(x, y);
+      await page.waitForTimeout(200);
+      await page.mouse.click(x, y + 20);
+      await page.waitForTimeout(200);
+      await page.mouse.click(x, y - 20);
     }
 
     // Wait for navigation to /frontend

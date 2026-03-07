@@ -65,8 +65,8 @@ export const MahoragaWheel: React.FC<MahoragaWheelProps> = ({ targetRotation, is
     // To see it "top-view", we must rotate the group on X-axis by 90 degrees (Math.PI / 2).
     // To see it "horizontal front-view with slight tilt back", we rotate it on X-axis to MathUtils.degToRad(-10) or MathUtils.degToRad(10). Let's use 10 degrees for tilt-up, or just ~10 degrees relative to XZ plane.
 
-    // Setting to -10 degrees as specifically requested to tilt it backward relative to the camera
-    const tiltRadians = MathUtils.degToRad(-10); // Tilt slightly backward
+    // Set to 5 degrees as specifically requested to tilt it slightly forward relative to the camera
+    const tiltRadians = MathUtils.degToRad(5); // Tilt slightly forward
     const targetRotX = isLoaded ? tiltRadians : Math.PI / 2;
 
     // Smoothly interpolate position and tilt (X-axis)
