@@ -1,6 +1,14 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + 3D Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules, expanded to serve as an interactive 3D portfolio using `@react-three/fiber` and `@react-three/drei`.
+
+## 3D Assets
+
+The portfolio includes custom 3D models stored in the `public/3d/` directory:
+- `mahoraga_wheel.glb`: Used as the central interactive navigation element. It is loaded via the `useGLTF` hook within the `MahoragaWheel.tsx` component, replacing the previous programmatic geometry. The model retains its interactive rotation features and orientation (horizontal view, 0-degree X-axis tilt).
+- `malevolent_shrine.glb`: Currently present for future use (intended for the footer section).
+
+## Technical Details
 
 Currently, two official plugins are available:
 

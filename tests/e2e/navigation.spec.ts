@@ -34,9 +34,9 @@ test.describe('Navigation', () => {
     const viewportSize = page.viewportSize();
     if (viewportSize) {
       const x = viewportSize.width / 2;
-      const y = viewportSize.height * 0.35; // Trying 35% from top
+      const y = viewportSize.height * 0.20; // Trying 20% from top
 
-      await page.waitForTimeout(1000);
+      await page.waitForTimeout(3000); // Give the model more time to render and position itself
 
       // Click the center of the wheel once
       await page.mouse.click(x, y);
