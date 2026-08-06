@@ -51,7 +51,7 @@ export function FormField({
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
           rows={4}
-          className={`form-field w-full py-2.5 text-body text-ink-primary placeholder:text-ink-muted ${className}`}
+          className={`form-field focus-self w-full py-2.5 text-body text-ink-primary placeholder:text-ink-secondary ${className}`}
           {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
         />
       ) : (
@@ -59,7 +59,7 @@ export function FormField({
           id={id}
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
-          className={`form-field w-full py-2.5 text-body text-ink-primary placeholder:text-ink-muted ${className}`}
+          className={`form-field focus-self w-full py-2.5 text-body text-ink-primary placeholder:text-ink-secondary ${className}`}
           {...(rest as InputHTMLAttributes<HTMLInputElement>)}
         />
       )}
@@ -68,7 +68,7 @@ export function FormField({
           {error}
         </p>
       ) : hint ? (
-        <p id={`${id}-hint`} className="font-mono text-mono-meta text-ink-muted">
+        <p id={`${id}-hint`} className="font-mono text-mono-meta text-ink-secondary">
           {hint}
         </p>
       ) : null}

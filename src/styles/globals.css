@@ -207,7 +207,8 @@
     .nav-flicker:hover,
     .group:hover .card-tear,
     .btn-fringe:hover,
-    .btn-fringe:active {
+    .btn-fringe:active,
+    .skip-link {
       animation: none !important;
       transition: none !important;
       transform: none !important;
@@ -239,6 +240,30 @@
     margin: 0;
     padding: 0;
     min-height: 100dvh;
+  }
+
+  /* Accessibility floor — visible focus never suppressed (UX-DR10, NFR-2).
+     Token-driven ≥ 2px outline; elements that render their own focus treatment
+     (form-field underline+glow) opt out via .focus-self. */
+  :focus-visible {
+    outline: 2px solid var(--color-ink-primary);
+    outline-offset: 2px;
+  }
+  .focus-self:focus-visible {
+    outline: none;
+  }
+
+  /* Skip link — first focusable element, revealed on focus (UX-DR10). */
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    transform: translateY(-200%);
+    transition: transform 150ms ease;
+  }
+  .skip-link:focus-visible {
+    transform: translateY(0);
   }
 
   /* Mobile glitch intensity ~30% reduction via the single amplitude token (UX-DR6) */

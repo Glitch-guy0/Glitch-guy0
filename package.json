@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "axe:scan": "node scripts/axe-scan.cjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -23,8 +24,10 @@
     "@types/node": "^20.14.10",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "axe-core": "^4.13.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "16.3.0",
+    "jsdom": "^30.0.1",
     "typescript": "^5.5.3"
   }
 }

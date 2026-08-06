@@ -134,7 +134,7 @@ export function Header({ email }: HeaderProps) {
           className="font-display text-mono-label uppercase tracking-wider text-ink-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-primary"
           aria-label="Back to top"
         >
-          glitch-guy0<span className="text-ink-muted">{'//'}</span>
+          glitch-guy0<span className="text-ink-secondary">{'//'}</span>
         </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-6 tablet:flex">

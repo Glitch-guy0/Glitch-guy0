@@ -24,7 +24,7 @@ export function ProjectCard({ title, visual, body, metadata, className = '' }: P
       <div className="flex flex-col gap-3 p-5">
         <h3 className="font-display text-heading-sm uppercase text-ink-primary">{title}</h3>
         <div className="flex flex-col gap-3 text-body text-ink-secondary">{body}</div>
-        <div className="mt-1 border-t border-border-hairline pt-3 font-mono text-mono-meta text-ink-muted">
+        <div className="mt-1 border-t border-border-hairline pt-3 font-mono text-mono-meta text-ink-secondary">
           {metadata}
         </div>
       </div>

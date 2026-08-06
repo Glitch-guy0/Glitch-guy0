@@ -42,6 +42,12 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}
     >
       <body className="antialiased selection:bg-ink-primary selection:text-surface-base">
+        <a
+          href="#top"
+          className="skip-link rounded-md border border-ink-primary bg-surface-base px-4 py-2 font-mono text-mono-label text-ink-primary"
+        >
+          Skip to content
+        </a>
         <MotionProvider>
           <Header email={CONTACT_EMAIL} />
           {children}

@@ -14,7 +14,7 @@ const SECTIONS = [
 
 export default function Home() {
   return (
-    <main id="top" className="flex min-h-screen flex-col">
+    <main id="top" tabIndex={-1} className="flex min-h-screen flex-col">
       <div className="flex w-full max-w-content-max flex-col px-5 pt-24 desktop:mx-auto desktop:px-12">
         {SECTIONS.map((section) => (
           <section
@@ -34,7 +34,7 @@ export default function Home() {
                 {section.title}
               </h2>
             </div>
-            <p className="max-w-xl font-mono text-mono-meta text-ink-muted">
+            <p className="max-w-xl font-mono text-mono-meta text-ink-secondary">
               Section content lands in Epic 2.
             </p>
           </section>

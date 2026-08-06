@@ -52,7 +52,7 @@ export function Footer({
             resume.pdf
           </a>
         )}
-        {copyright && <p className="text-ink-muted">{copyright}</p>}
+        {copyright && <p className="text-ink-secondary">{copyright}</p>}
       </div>
     </footer>
   );
