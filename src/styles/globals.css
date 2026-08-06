@@ -56,6 +56,84 @@
   --breakpoint-desktop: 1280px;
 }
 
+@layer components {
+  /* Primary CTA hover — gray-fill + scale 1.02, instant snap-back (DESIGN.md button-primary).
+     The palette is strictly monochrome, so the "grayscale fringe" is expressed by the
+     fill change; the glitch burst on CTA hover is Story 1.5's motion engine. */
+  .btn-fringe {
+    transition: background-color 100ms ease, transform 100ms ease;
+  }
+  .btn-fringe:hover {
+    transform: scale(1.02);
+  }
+  .btn-fringe:active {
+    transform: scale(0.98);
+  }
+
+  /* Nav link hover — 100ms text-flicker via opacity pulse (DESIGN.md nav-link) */
+  .nav-flicker {
+    transition: color 100ms ease, opacity 100ms ease;
+  }
+  .nav-flicker:hover {
+    animation: nav-flicker 100ms steps(2, start) 1;
+  }
+  @keyframes nav-flicker {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Project card hover — 150ms horizontal tear on the visual, fired on whole-card hover
+     via the group class (DESIGN.md project-card). Border flash lives on the card itself. */
+  .group:hover .card-tear {
+    animation: card-tear 150ms steps(2, start) 1;
+  }
+  @keyframes card-tear {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-3px);
+    }
+    50% {
+      transform: translateX(3px);
+    }
+    75% {
+      transform: translateX(-1px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+@layer components {
+  /* Form field — underline-only with 2px white focus underline + glow (DESIGN.md form-field) */
+  .form-field {
+    background-color: transparent;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--color-border-hairline);
+    transition: border-color 100ms ease, box-shadow 100ms ease;
+  }
+  .form-field:focus {
+    outline: none;
+    border-bottom-color: var(--color-ink-primary);
+    border-bottom-width: 2px;
+    box-shadow: 0 1px 0 0 var(--color-ink-primary);
+  }
+  .form-field[aria-invalid='true'] {
+    border-bottom-color: var(--color-ink-primary);
+    border-bottom-width: 2px;
+  }
+}
+
 @layer base {
   :root {
     color-scheme: dark;
