@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from 'next/font/google';
+import { MotionProvider } from '@/components/MotionProvider';
 import '@/styles/globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -39,7 +40,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}
     >
       <body className="antialiased selection:bg-ink-primary selection:text-surface-base">
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

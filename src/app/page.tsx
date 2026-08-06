@@ -11,9 +11,12 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <div className="flex w-full max-w-content-max flex-col gap-16 px-5 py-16 desktop:mx-auto desktop:px-12">
-        <header className="flex flex-col gap-2">
+        <header className="flex flex-col gap-2" data-reveal>
           <SectionNumber>001</SectionNumber>
-          <h1 className="font-display text-display-mobile uppercase tablet:text-display">
+          <h1
+            className="font-display text-display-mobile uppercase tablet:text-display"
+            data-burst-on-load
+          >
             Component Library
           </h1>
           <p className="max-w-xl text-body text-ink-secondary">
@@ -21,8 +24,8 @@ export default function Home() {
           </p>
         </header>
 
-        <section aria-labelledby="cta-heading" className="flex flex-col gap-4">
-          <h2 id="cta-heading" className="font-display text-heading uppercase">
+        <section aria-labelledby="cta-heading" className="flex flex-col gap-4" data-reveal>
+          <h2 id="cta-heading" className="font-display text-heading uppercase" data-glitch-burst>
             Buttons
           </h2>
           <div className="flex flex-wrap gap-4">
