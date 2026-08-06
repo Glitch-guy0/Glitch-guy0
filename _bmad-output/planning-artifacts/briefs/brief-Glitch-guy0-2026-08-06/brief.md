@@ -1,11 +1,16 @@
 ---
 title: "Product Brief: Freelance Backend Engineer Portfolio"
-status: draft
+status: finalized
 created: 2026-08-06
 updated: 2026-08-06
 ---
 
 # Product Brief: Freelance Backend Engineer Portfolio
+
+## Status
+
+- **v1 — finalized**: working webpages (Hero, Services, Projects, About, Skills, Experience, Contact), contact flow, resume, analytics. Scope locked for build.
+- **v2 — approved**: geo-split `/in` `/us`, buyer-segment positioning, pricing model, availability statement, decision-system blog pages. Direction approved; **deferred to post-launch**.
 
 ## Executive Summary
 
@@ -54,9 +59,17 @@ A working Next.js + Tailwind site on Vercel, structured as one conversion funnel
 
 ## Scope
 
-**In v1:** Hero, Services (3 offers, no pricing), Projects, About, Skills, Experience, Contact; contact API + EmailOctopus; resume PDF + button; Vercel Web Analytics + contacts metric; testimonials (ask manager); freelance resume.
+### v1 — Finalized (in build scope)
 
-**Explicitly out of v1 (v2, post-launch):** geo-split `/in` `/us` + server-side geolocation; buyer-segment positioning; pricing model; availability statement; decision-system blog pages (diagrams + animations).
+Hero, Services (3 offers, no pricing), Projects, About, Skills, Experience, Contact; contact API + EmailOctopus; resume PDF + button; Vercel Web Analytics + contacts metric; testimonials (ask manager); freelance resume.
+
+### v2 — Approved (deferred, post-launch)
+
+- Geo-split `/in` `/us` + server-side geolocation
+- Buyer-segment positioning
+- Pricing model
+- Availability statement
+- Decision-system blog pages (diagrams + animations)
 
 **Also out:** visual redesign — the glitch/Y2K aesthetic in `design.md` is the reference, not to be re-designed.
 
