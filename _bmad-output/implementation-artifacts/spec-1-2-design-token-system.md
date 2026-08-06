@@ -139,3 +139,34 @@ Token names mirror DESIGN.md roles so the source of truth stays auditable (`bord
 **Manual checks (if no CLI):**
 - Grep `src/app/**/*.tsx` for `#[0-9a-fA-F]{3,6}`, `rgba?(`, and `[0-9]+px` -- expected: no matches
 - Inspect `.next/static/css/*.css` for the `@media (prefers-color-scheme: light)` re-binding block
+
+## Auto Run Result
+
+Status: done
+
+**Summary:** Implemented the Epic 1 Story 1.2 design token system — a single-sourced Tailwind v4 `@theme` token layer in `src/styles/globals.css` (monochrome colors, type roles, font roles, spacing, radii, breakpoints) with light-mode re-binding of the same token names under `prefers-color-scheme: light`, `color-scheme` matching, and token utilities wired into the layout/placeholder. Fixed two Story 1.1 scaffold defects that blocked verification (missing `postcss.config.mjs`; Next 16 `next lint` script + missing eslint config).
+
+**Files changed:**
+- `src/styles/globals.css` -- NEW: token layer + base layer (dark default, light re-binding, body defaults)
+- `src/app/globals.css` -- DELETED: superseded by `src/styles/globals.css` (AD-1 location)
+- `src/app/layout.tsx` -- import `@/styles/globals.css`; token selection classes; removed vestigial `className="dark"`
+- `src/app/page.tsx` -- placeholder uses `text-heading`/`text-ink-muted` token utilities
+- `postcss.config.mjs` -- NEW: wires `@tailwindcss/postcss` (scaffold shipped none)
+- `eslint.config.mjs` -- NEW: Next 16 flat config (core-web-vitals + typescript, tooling-dir ignores)
+- `package.json` -- `lint` script `next lint` → `eslint` (Next 16 removed `next lint`)
+- `_bmad-output/implementation-artifacts/spec-1-2-design-token-system.md` -- this spec
+- `_bmad-output/implementation-artifacts/sprint-status.yaml` -- story 1-2 → done
+
+**Review findings breakdown:** Blind Hunter + Edge Case Hunter run in parallel. Triage: 7 patches applied (1 high: undefined `--font-*` vars invalidating `font-family` — inline `var(..., fallback)` added; 3 medium: `color-scheme` missing, misleading `--breakpoint-mobile` removed in favor of mobile-first unprefixed base, px type ramp → rem; 3 low: `--container-content-max` namespace, body theming dedup, `100dvh`). 0 deferred. 9 rejected (overreach/faithful-to-DESIGN.md/by-design). No intent gaps, no bad_spec loopback.
+
+**Follow-up review recommendation:** true — a foundation file every Epic-1 story builds on received 7 review patches including a high, so one independent confirmation pass is warranted.
+
+**Verification performed:**
+- `npm run build` -- exit 0; compiled CSS contains token vars, `@media (prefers-color-scheme: light)` re-binding block, `color-scheme` dark/light, `100dvh`, inline font fallbacks
+- `npm run lint` -- exit 0
+- Grep `src/app/**/*.tsx` for `#[0-9a-fA-F]{3,6}`, `rgba?(`, `[0-9]+px` -- no matches
+
+**Residual risks:**
+- `tablet:`/`desktop:` variants and most type/spacing tokens are not yet consumed by components (consumed by Stories 1.3–1.6).
+- Story 1.3 must bind next/font vars exactly `--font-inter`, `--font-space-grotesk`, `--font-ibm-plex-mono` (contract pinned in Design Notes).
+- The default Tailwind `sm/md/lg/xl/2xl` breakpoint set still coexists with `tablet`/`desktop`; components should use the site tokens. 360px is a minimum-supported-width test floor, not a breakpoint.
