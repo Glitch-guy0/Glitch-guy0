@@ -7,6 +7,10 @@ updated: 2026-08-06
 
 # Product Brief: Freelance Backend Engineer Portfolio
 
+## Positioning Patch (2026-08-06)
+
+**Harness Engineer, not generic backend engineer.** Course-corrected via `sprint-change-proposal-2026-08-06.md`: the Builder's positioning is now **Harness Engineer** — the infrastructure around LLMs (RAG pipelines, retrieval, agent orchestration, guardrails, evaluation) — matching the work he actually ships (Shikigami Agent SDK, ChaiBookLM, ChaiChat, chaiGPT). The zero-downtime migration is a **work statement** (Experience section), not a Project Entry. Hero and Services are realigned to the Harness identity and stay credible at 1+ year of experience — no model-ownership or grand-promise claims. **This note supersedes "freelance backend engineer" references in the body below; the corrected source of truth is the PRD** (`prds/prd-Glitch-guy0-2026-08-06/prd.md`). All v1 scope-structure decisions below remain valid.
+
 ## Status
 
 - **v1 — finalized**: working webpages (Hero, Services, Projects, About, Skills, Experience, Contact), contact flow, resume, analytics. Scope locked for build.
