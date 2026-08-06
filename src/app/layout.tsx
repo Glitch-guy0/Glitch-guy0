@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Glitch-guy0 | AI Systems & Platform Engineer',
@@ -12,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className="antialiased bg-black text-white selection:bg-white selection:text-black">
+    <html lang="en">
+      <body className="antialiased selection:bg-ink-primary selection:text-surface-base">
         {children}
       </body>
     </html>
