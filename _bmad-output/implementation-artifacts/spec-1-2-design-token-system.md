@@ -2,7 +2,7 @@
 title: 'Story 1.2: Design token system'
 type: 'feature'
 created: '2026-08-06'
-status: 'in-review'
+status: 'done'
 baseline_revision: '10fda88a87da266eaa640b88364e77fba76e58c7'
 review_loop_iteration: 0
 followup_review_recommended: true
