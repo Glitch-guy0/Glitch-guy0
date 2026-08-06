@@ -55,12 +55,12 @@ Behavioral. Visual specs live in `DESIGN.md.Components`.
 
 | Component | Use | Behavioral rules |
 |---|---|---|
-| Nav link | Header | Click smooth-scrolls to anchor. Active section glows cyan (`{colors.accent-cyan}`). Tab-focusable, visible focus ring. |
+| Nav link | Header | Click smooth-scrolls to anchor. Active section renders white + weight (`{colors.ink-primary}`). Tab-focusable, visible focus ring. |
 | Primary CTA | Hero, Contact, footer | Single action: jump to Contact. Hover glitch burst per `DESIGN.md`. Label is outcome-based ("Tell me about your project"). |
-| Offer card | Services | Three cards, identical anatomy: name, 1–2 line scope, deliverables list, timeline in mono. No pricing anywhere (v1). Hover: hairline → magenta. |
+| Offer card | Services | Three cards, identical anatomy: name, 1–2 line scope, deliverables list, timeline in mono. No pricing anywhere (v1). No per-offer action button — path to Contact is the page's single primary CTA. Hover: hairline → white. |
 | Project card | Projects | Featured: one visual, problem → solution → result body, mono metadata (stack, timeline), working **Live** and **GitHub** links. Secondary Showcase: compact rows, links only. |
 | Skill pill | Skills | 6–8 pills, lead with harness domains (AI/LLM, RAG, agent orchestration, backend, DB, AWS, auth, architecture). Plain list — no bars, no counts, no hover reveal. |
-| Testimonial | Experience end | At least one attributed quote (Brigosha manager). Name + role in mono. Left cyan rule per `DESIGN.md`. |
+| Testimonial | Experience end | At least one attributed quote (Brigosha manager). Name + role in mono. Left white rule per `DESIGN.md`. |
 | Form field | Contact | Underline field, floating mono label. Validates on blur + on submit. Errors inline, announced. |
 | Submit button | Contact | Primary CTA treatment. `SUBMITTING…` while in flight; success and error replace the form inline (no navigation). |
 | Resume link | Header (desktop), footer, Contact | Static PDF at `/public/resume.pdf`, cache-busted (`?v=`). New tab, `download` attribute. |
@@ -73,14 +73,14 @@ Behavioral. Visual specs live in `DESIGN.md.Components`.
 | Cold load | Hero | Headline reveals with the single hero glitch burst (load only, then stable). Above-the-fold shows outcome line + CTA within first viewport. |
 | Scrolled | Header | Transparent → hairline bottom border. Section nav updates active glow. |
 | Section enter | Any header | One 150ms glitch burst on the section number + heading as it enters the viewport; never repeats while in view. |
-| Form idle / focus | Contact | Underline at rest; cyan glow on focus (`{colors.accent-cyan}`). |
-| Form error | Contact | Inline mono message + magenta underline (`{colors.accent-magenta}`). Field keeps focus; message in `aria-live`. |
+| Form idle / focus | Contact | Underline at rest; white glow on focus (`{colors.ink-primary}`). |
+| Form error | Contact | Inline mono message + white underline (`{colors.ink-primary}`). Field keeps focus; message in `aria-live`. |
 | Form submitting | Contact | Button label swaps to `SUBMITTING…`, button disabled, no glitch on the button while in flight. |
 | Form success | Contact | Form container replaced by success block: plain confirmation + "I'll reply within a day." Copy button for email. |
 | Form failure | Contact | Error block replaces form: retry button, message preserved client-side (never lose the visitor's words). |
 | No JS | All | Anchors still jump natively; form shows graceful fallback message pointing to `mailto:`. Progressive enhancement only. |
 | Image loading | Projects | Fixed-aspect placeholder with hairline frame + scanline shimmer; no layout shift. |
-| Reduced motion | All | `prefers-reduced-motion: reduce` → glitch bursts become instant reveal (no jitter, no RGB split, no flicker); scroll behavior falls back to instant. |
+| Reduced motion | All | `prefers-reduced-motion: reduce` → glitch bursts become instant reveal (no jitter, no grayscale offset, no flicker); scroll behavior falls back to instant. |
 | Cookie not accepted | All | Vercel analytics blocked; page fully functional. |
 
 ## Interaction Primitives
@@ -96,17 +96,17 @@ Behavioral. Visual specs live in `DESIGN.md.Components`.
 Behavioral. Visual contrast lives in `DESIGN.md` (`Colors`).
 
 - **WCAG 2.1 AA** across the responsive surface (per PRD §5). Body text and mono labels ≥ 4.5:1 in both modes; CTA labels ≥ 4.5:1 against their fills.
-- **Glitch constraints (WCAG 2.3.1):** no flashing > 3×/second; bursts 100–400ms; never on body text or form fields. A global `prefers-reduced-motion: reduce` media query disables all glitch keyframes — jitter, flicker, RGB split, card tear — outright (not merely reduced), leaving the instant reveal.
-- **Keyboard:** full page operable with visible focus rings (`{colors.accent-cyan}` outline ≥ 2px). Focus indicators are never suppressed (`outline: none` only ever paired with a ≥ 2px custom replacement). No keyboard traps; `Esc` dismisses the banner.
+- **Glitch constraints (WCAG 2.3.1):** no flashing > 3×/second; bursts 100–400ms; never on body text or form fields. A global `prefers-reduced-motion: reduce` media query disables all glitch keyframes — jitter, flicker, grayscale offset, card tear — outright (not merely reduced), leaving the instant reveal.
+- **Keyboard:** full page operable with visible focus rings (`{colors.ink-primary}` outline ≥ 2px). Focus indicators are never suppressed (`outline: none` only ever paired with a ≥ 2px custom replacement). No keyboard traps; `Esc` dismisses the banner.
 - **Screen readers:** semantic landmarks (`header`, `main`, `section` with labelled headings), `aria-label` on icon-only links, `alt` text on all project visuals (decorative scanlines/noise are `aria-hidden`), inline form errors injected into an `aria-live="assertive"` region so they announce immediately, success/failure regions announced.
 - **Touch:** targets ≥ 44×44px (PRD) — including cookie-banner controls and mobile nav items. Form fields full-width on mobile.
-- **Color is never the only signal:** active nav = glow *and* weight; form errors = message *and* magenta underline; glitch bursts are motion-plus-color, never a state indicator.
+- **Color is never the only signal:** active nav = white *and* weight; form errors = message *and* white underline; glitch bursts are motion-plus-emphasis, never a state indicator.
 - **Build-time verification:** load-bearing contrast pairs verified with automated tooling (axe-core) in both modes before launch (PRD §5).
 - **Motion-sensitive & vestibular:** all animations are opacity/transform only (GPU-friendly); no parallax, no scroll-jacking, no autoplay media.
 
 ## Inspiration & Anti-patterns
 
-- **Lifted from The Nifty Portal:** monochrome terminal canvas + three neons spent in small doses; all-caps mono headings with section numbering (`001`, `002`…); scanlines + noise as atmosphere; 100–400ms glitch bursts with instant snap-back; sharp corners; "works flawlessly while looking unstable" as the trust device.
+- **Lifted from The Nifty Portal:** full monochrome terminal canvas (no chromatic accents); all-caps mono headings with section numbering (`001`, `002`…); scanlines + noise as atmosphere; 100–400ms glitch bursts with instant snap-back; sharp corners; "works flawlessly while looking unstable" as the trust device.
 - **Lifted from strong freelance portfolios (research):** problem → solution → result case studies with quantified magnitudes; named testimonials; timezone/communication framing; contact reachable everywhere; one outcome headline in the first 3 seconds.
 - **Rejected — NFT gatekeeping (Nifty Portal):** the portal language ("INITIATE SEQUENCE", exclusivity framing) is membership theater. A freelance portfolio must *invite* contact, not gate it. The terminal voice stays; the "you're not worthy" posture goes.
 - **Rejected — Resume-as-website (junior pattern):** flat tech lists, adjective-only claims, self-rated skill bars, no case-study depth. The PRD's "no fabricated experience, every claim needs a magnitude" is a hard rule.
@@ -133,7 +133,7 @@ The site is a vertical stack at every width — no multi-column reading experien
 3. She scrolls past Services — three offers with timelines, no pricing wall — and lands on the lead project, Shikigami Agent SDK, framed problem → solution → result.
 4. The result is quantified ("3-day zero-downtime migration of 5 production collections").
 5. She taps **Tell me about your project** in the header CTA.
-6. **Climax:** The contact form is already focused on her name field when she arrives; she fills Name, Email, Project type, Message in under a minute, submits, and gets a plain confirmation — *"Message sent. I'll reply within a day."* — without ever leaving the page.
+6. **Climax:** The contact form is already focused on her name field when she arrives; she fills Name, Email, Message in under a minute, submits, and gets a plain confirmation — *"Message sent. I'll reply within a day."* — without ever leaving the page.
 
 Failure: submit fails (network / API error) → the form is replaced by an error block with her message preserved and a single retry button. Her words are never lost.
 

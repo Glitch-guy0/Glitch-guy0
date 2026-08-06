@@ -1,31 +1,23 @@
 ---
 name: Glitch-guy0
-description: Freelance harness-engineer portfolio. Terminal-clean Y2K glitch aesthetic — near-black canvas, monochrome structure, neon reserved for glitch bursts and the single conversion CTA. Dark default, light mode available.
+description: Freelance harness-engineer portfolio. Terminal-clean Y2K glitch aesthetic — near-black canvas, full monochrome (black/white/gray, no chromatic color), white reserved for glitch bursts and the single conversion CTA. Dark default, light mode available.
 status: final
 colors:
-  # Dark (default). Base palette per the Nifty Portal teardown: monochrome core, neon accents used only for glitch bursts, CTA emphasis, and section numbers.
+  # Dark (default). Strictly monochrome — black, white, grays. No chromatic color in v1; emphasis carried by white, tone, and weight.
   surface-base: '#000000'
   surface-raised: '#111111'
   ink-primary: '#FFFFFF'
   ink-secondary: '#9C9C9C'
   ink-muted: '#6B6B6B'
   ink-disabled: '#3D3D3D'
-  accent-magenta: '#FF00FF'
-  accent-cyan: '#00FFFF'
-  accent-yellow: '#FFFF00'
-  on-accent: '#000000'
   border-hairline: '#262626'
-  # Light mode. Same monochrome structure; neon accents deepened to hold WCAG AA as text and on CTA fills.
+  # Light mode. Same monochrome structure, inverted.
   surface-base-light: '#F4F2EE'
   surface-raised-light: '#FFFFFF'
   ink-primary-light: '#111111'
   ink-secondary-light: '#404040'
   ink-muted-light: '#6E6A63'
   ink-disabled-light: '#A8A49C'
-  accent-magenta-light: '#B8009B'
-  accent-cyan-light: '#007F7F'
-  accent-yellow-light: '#7C5E00'
-  on-accent-light: '#FFFFFF'
   border-hairline-light: '#DCD8D0'
 typography:
   display:
@@ -93,14 +85,14 @@ spacing:
   content-max: 1080px
 components:
   button-primary:
-    background: '{colors.accent-magenta}'
-    foreground: '{colors.on-accent}'
+    background: '{colors.ink-primary}'
+    foreground: '{colors.surface-base}'
     radius: '{rounded.md}'
     border: 'none'
     fontFamily: '{typography.mono-label.fontFamily}'
   button-primary-hover:
-    background: '{colors.accent-cyan}'
-    foreground: '{colors.on-accent}'
+    background: '{colors.ink-secondary}'
+    foreground: '{colors.surface-base}'
   button-secondary:
     background: 'transparent'
     foreground: '{colors.ink-primary}'
@@ -125,7 +117,7 @@ components:
     border: '0 0 1px solid {colors.border-hairline}'
     radius: '0'
   section-number:
-    color: '{colors.accent-cyan}'
+    color: '{colors.ink-primary}'
     fontFamily: '{typography.mono-label.fontFamily}'
 ---
 
@@ -133,23 +125,22 @@ components:
 
 Glitch-guy0 is a freelance portfolio for a **harness engineer** — the person who builds the infrastructure around foundation models (RAG, retrieval, agent orchestration, guardrails, evaluation) on production-grade backend foundations. The site is itself the demo: it should *look* like a system that's alive and barely contained, while *behaving* with total reliability. That gap — appearance of chaos, reality of control — is the pitch. It says: *this person knows how systems work, and how they break.*
 
-The visual language is lifted deliberately from The Nifty Portal: a monochrome, terminal-clean canvas (near-black in dark mode, warm paper in light) carrying the content, with neon color spent in small, precise doses — glitch bursts on headlines and CTAs, section numbers, hover fringes. Nothing decorative is ever large. Body text is never glitched, and the whole page is never glitched. The effect is a time capsule that still converts.
+The visual language is lifted deliberately from The Nifty Portal: a monochrome, terminal-clean canvas (near-black in dark mode, warm paper in light) carrying the content, with emphasis handled in white and gray alone — glitch bursts on headlines and CTAs, section numbers, hover fringes. Nothing decorative is ever large. Body text is never glitched, and the whole page is never glitched. The effect is a time capsule that still converts.
 
 [ASSUMPTION] Type ramp: **Space Grotesk** (display, all-caps, technical) + **IBM Plex Mono** (labels, meta, technical readouts) + **Inter** (body). Self-hosted Google Fonts, subset + preloaded. Swap any of these at build time; the roles (display / mono / body) are the contract.
 
 ## Colors
 
-The palette is monochrome-plus-three. Structure and text are grayscale; the three neon accents are spent on glitch bursts, the conversion CTA, and section numbering — never as fills behind body text, never as state badges.
+The palette is strictly monochrome — black, white, and grays. No chromatic color anywhere in v1. Emphasis is carried by white, tone contrast, and weight, so every emphasis signal has a structural twin (underline, weight, or fill change).
 
 - **Pure Black (`#000000`)** is the dark canvas — infinite space, terminal blank. Light mode swaps it for **Warm Paper (`#F4F2EE`)**: a slightly warm off-white that keeps the CRT memory without going clinical.
 - **Raises (`#111111` / `#FFFFFF`)** are the depth layer — project cards, raised panels. Depth comes from tone, not shadow.
-- **Industrial Gray (`#9C9C9C`)** is the body text of dark mode — the teardown's core neutral. In light mode the ink roles move to near-black grays (`#404040`, `#6E6A63`).
-- **Neon Magenta (`#FF00FF`)** is the primary accent — the contact CTA fill, the strongest glitch fringe. **Neon Cyan (`#00FFFF`)** is the secondary accent — section numbers, link hover glitches, form focus glow. **Neon Yellow (`#FFFF00`)** is the rarest — highlights and marquee ticks, never text.
+- **Industrial Gray (`#9C9C9C`)** is the body text of dark mode. In light mode the ink roles move to near-black grays (`#404040`, `#6E6A63`).
+- **White (`#FFFFFF`)** is the emphasis color — the primary CTA fill, section numbers, active nav, focus glows, hover borders. It is the only place a full-strength ink becomes a fill.
 - **Hairlines (`#262626` dark / `#DCD8D0` light)** separate blocks at the lowest legible contrast. Terminal frames, not card borders.
-- **Light-mode accents** (`#B8009B`, `#007F7F`, `#7C5E00`) are the same hues deepened to hold WCAG AA when they carry text or CTA labels. The glitch fringes and scanline textures themselves are decorative and exempt from contrast targets.
-- **Contrast is verified, not assumed.** Body text, mono labels, and CTA labels meet ≥ 4.5:1 in both modes; the build verifies load-bearing combinations with automated tooling (axe-core) before launch. If a neon carries text and measures below 4.5:1, deepen the shade or demote it to a graphical indicator (3:1).
+- **Contrast is verified, not assumed.** Body text, mono labels, and CTA labels meet ≥ 4.5:1 in both modes; the build verifies load-bearing combinations with automated tooling (axe-core) before launch. Glitch fringes and scanline textures are decorative and exempt from contrast targets.
 
-Avoid: gradients behind content, color-coded categories, saturated accent fills behind body copy, and any chromatic color outside the three accents. If the site can't justify a color, it doesn't get one.
+Avoid: any chromatic color, gradients, color-coded categories, and accent fills behind body copy. If the site can't justify a tone, it doesn't get one.
 
 ## Typography
 
@@ -159,7 +150,7 @@ Three voices, locked to roles. All-caps is a headline device only — never para
 - **Body (Inter 400)** — 16–18px, line-height 1.6. The scanning window is 15–30 seconds; body text is set at the largest comfortable size and never glitched.
 - **Mono (IBM Plex Mono)** — section numbers (`001`), nav links, skill pills, project metadata (timeline, links), form labels, footer. `mono-label` 12px at 0.08em tracking for labels; `mono-meta` 13px for readouts.
 
-Contrast floor: body and mono text ≥ 4.5:1 against their surface in both modes (WCAG AA). Neon accents that carry text meet the same floor; glitch fringes are exempt.
+Contrast floor: body and mono text ≥ 4.5:1 against their surface in both modes (WCAG AA). Glitch fringes are decorative and exempt from contrast targets.
 
 ## Layout & Spacing
 
@@ -176,7 +167,7 @@ Glitch-guy0 does not elevate with shadows. Depth is layered through tone and tex
 
 - **Tonal layering** — `{colors.surface-raised}` panels against `{colors.surface-base}`; no drop shadows on cards.
 - **Atmosphere layers** — a full-viewport, low-opacity CRT treatment: scanlines + faint noise, fixed and non-interactive, at 3–6% opacity. It reads as hardware, not decoration.
-- **The glitch as elevation** — a glitch burst (100–400ms RGB split + jitter, instant snap-back) is the "lift" moment: it fires on the hero headline at load, on section headers entering the viewport, and on CTA/card hover. It is the only elevation the system has, which is why it lands. Never applied to body text, form fields, or the whole page at once.
+- **The glitch as elevation** — a glitch burst (100–400ms grayscale offset + jitter, instant snap-back) is the "lift" moment: it fires on the hero headline at load, on section headers entering the viewport, and on CTA/card hover. It is the only elevation the system has, which is why it lands. Never applied to body text, form fields, or the whole page at once.
 
 ## Shapes
 
@@ -186,23 +177,23 @@ Terminal-sharp. `{rounded.sm}` (2px) for pills and small chips, `{rounded.md}` (
 
 Visual specs. Behavioral rules live in `EXPERIENCE.md.Component Patterns`.
 
-- **Primary CTA (button-primary)** — solid `{colors.accent-magenta}` fill, `{colors.on-accent}` mono label, `{rounded.md}` corner. Hover: fills `{colors.accent-cyan}` with a 100ms RGB-split fringe, scales 1.02, snaps back on exit. The one place neon is a fill.
+- **Primary CTA (button-primary)** — solid `{colors.ink-primary}` fill, `{colors.surface-base}` mono label, `{rounded.md}` corner. Hover: fills `{colors.ink-secondary}` with a 100ms grayscale-offset fringe, scales 1.02, snaps back on exit. The one place white is a fill.
 - **Secondary button (button-secondary)** — transparent, 1px `{colors.ink-primary}` outline, mono label. Hover: fills `{colors.ink-primary}` and inverts text.
-- **Nav link (nav-link)** — `{colors.ink-secondary}` mono label; active section glows cyan; hover fires a 100ms text-flicker.
-- **Project card (project-card)** — `{colors.surface-raised}` panel, 1px hairline border. One visual (screenshot/GIF), problem → solution → result body, mono metadata row (stack, timeline, Live / GitHub links). Hover: hairline border flashes cyan and the visual does a single 150ms horizontal tear.
-- **Skill pill (skill-pill)** — transparent, 1px hairline, mono label. Hover: border turns magenta. No percentage bars, no fills.
-- **Section header** — cyan `{colors.section-number}` prefix (`001`) in mono above an all-caps `heading`. The number is the only per-section color — it maps 1:1 to nav order.
-- **Form field (form-field)** — underline-only (bottom hairline), transparent fill. Focus: 2px cyan underline + glow. Error: 2px magenta underline with inline mono message.
-- **Testimonial** — `body-lg` quote with a left cyan rule, mono attribution (`— NAME, ROLE`). Hairline separation, no card fill.
+- **Nav link (nav-link)** — `{colors.ink-secondary}` mono label; active section renders white + weight; hover fires a 100ms text-flicker.
+- **Project card (project-card)** — `{colors.surface-raised}` panel, 1px hairline border. One visual (screenshot/GIF), problem → solution → result body, mono metadata row (stack, timeline, Live / GitHub links). Hover: hairline border flashes white and the visual does a single 150ms horizontal tear.
+- **Skill pill (skill-pill)** — transparent, 1px hairline, mono label. Hover: border turns white. No percentage bars, no fills.
+- **Section header** — white `{colors.section-number}` prefix (`001`) in mono above an all-caps `heading`. The number is the only per-section emphasis — it maps 1:1 to nav order.
+- **Form field (form-field)** — underline-only (bottom hairline), transparent fill. Focus: 2px white underline + glow. Error: 2px white underline with inline mono message.
+- **Testimonial** — `body-lg` quote with a left white rule, mono attribution (`— NAME, ROLE`). Hairline separation, no card fill.
 - **Footer** — mono meta: email, resume link, socials, copyright. Inline with hairline top border, no hero treatment.
 
 ## Do's and Don'ts
 
 | Do | Don't |
 |---|---|
-| Keep the canvas monochrome; spend the three neons in small precise doses | Neon fills behind body text, gradients, color-coded sections |
+| Keep the canvas monochrome; spend white in small precise doses | Any chromatic color, gradients, color-coded sections |
 | Fire glitches as short bursts (100–400ms) with instant snap-back | Sustained jitter, page-wide glitching, glitching body text or form fields |
-| Pair every color signal with structure — underline, weight, or text | Color as the only signal for state (active, error, hover) |
+| Pair every emphasis signal with structure — underline, weight, or fill | Tone as the only signal for state (active, error, hover) |
 | Use all-caps + wide tracking for headings, sentence case for the hero line and body | All-caps paragraph text, decorative display type |
 | Sharpen corners to 2–6px (equipment, not appliance) | Pills, large radii, soft consumer-app rounding |
 | Respect `prefers-reduced-motion` — glitch becomes instant reveal, no animation | Motion as the only signal; flashing > 3×/second anywhere |

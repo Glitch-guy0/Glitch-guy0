@@ -38,7 +38,7 @@ A working Next.js + Tailwind site on Vercel, structured as one conversion funnel
 - **About**: keep — human, honest, work-related.
 - **Skills**: 6–8 pills (harness-first: LLM Harnessing, Vector Search, TS/Node, Backend, DB, AWS, Auth, Architecture). No percentage bars.
 - **Experience**: 2–3 work statements reframed as outcomes (zero-downtime migration, legacy stabilization, Play Store app), from resume.md.
-- **Contact**: email in header + footer; working `POST /api/contact` form (Name, Email, Project type, Message) wired to EmailOctopus (free tier); same route feeds the contacts metric. No testimonials in v1 (decision 2026-08-06).
+- **Contact**: email in header + footer; working `POST /api/contact` form (Name, Email, Message) wired to EmailOctopus (free tier); same route feeds the contacts metric. No testimonials in v1 (decision 2026-08-06).
 - **Resume**: static PDF at `/public/resume.pdf` + styled button (cache-bust `?v=`), generated from resume.md and adapted to the design voice.
 - **Analytics**: Vercel Web Analytics (free, zero-config) for visits + engagement with cookie-consent banner; contacts measured via the contact route.
 

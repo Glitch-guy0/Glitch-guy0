@@ -188,5 +188,4 @@ Currently accepting freelance/contract AI and backend engineering projects. Open
 **Contact Form Fields:**
 - Name
 - Email
-- Project type
 - Message

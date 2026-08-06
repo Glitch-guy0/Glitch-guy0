@@ -25,7 +25,7 @@ No mockups, wireframes, or imports exist (fast path, creative tools skipped). `.
 No pixel specs duplicating tokens, no source restatement (personas/FRs live in the sources), prose only where it carries a decision. DESIGN.md carries editorial voice as intended; EXPERIENCE.md prose is decision-bearing.
 
 ## 7. Inheritance discipline — strong
-`sources` frontmatter resolves to the four confirmed inputs. UJ names mirrored verbatim (UJ-1/2/3). EXPERIENCE.md references DESIGN.md tokens by name and `{path.to.token}` syntax (e.g., `{colors.accent-cyan}`).
+`sources` frontmatter resolves to the four confirmed inputs. UJ names mirrored verbatim (UJ-1/2/3). EXPERIENCE.md references DESIGN.md tokens by name and `{path.to.token}` syntax (e.g., `{colors.ink-primary}`).
 
 ## 8. Shape fit — strong
 DESIGN.md sections in canonical order (Brand & Style → Colors → Typography → Layout & Spacing → Elevation & Depth → Shapes → Components → Do's and Don'ts). EXPERIENCE.md has all required defaults plus both triggered sections (Inspiration & Anti-patterns; Responsive & Platform).

@@ -41,7 +41,7 @@ v1 ships the seven working sections (Hero → Services → Projects → About �
 
 ### 2.3 Key User Journeys
 
-- **UJ-1. Maya, founder, decides in a 20-second scan.** Six-person startup, messy MVP backend, three freelancer tabs open. Arrives from search/referral on the Hero. Reads the outcome line (1–2 s) → skims Services for a matching offer → opens the leading Project Entry (problem → solution → result) → checks the header email or scrolls to Contact. Submits Name, Email, Project type, Message; sees a clear success confirmation. *Edge case:* on form error she sees a clear error, her input is preserved, and she can retry or use the header mailto link.
+- **UJ-1. Maya, founder, decides in a 20-second scan.** Six-person startup, messy MVP backend, three freelancer tabs open. Arrives from search/referral on the Hero. Reads the outcome line (1–2 s) → skims Services for a matching offer → opens the leading Project Entry (problem → solution → result) → checks the header email or scrolls to Contact. Submits Name, Email, Message; sees a clear success confirmation. *Edge case:* on form error she sees a clear error, her input is preserved, and she can retry or use the header mailto link.
 
 - **UJ-2. Raj, agency owner, deep-vets before committing.** Needs a backend subcontractor; vets harder because his client reputation is on the line. Arrives mid-funnel (Projects or Experience) via a shared link. Opens every Project Entry and follows Live + GitHub links → reads the outcome-framed work statements → downloads the freelance resume. Climax: verifiable proof (live systems, outcome metrics with magnitude) and a scope he can quote against. Resolves by emailing the Builder directly from the header with a project brief. *Edge case:* a dead link or vague metric drops his trust sharply.
 
@@ -54,7 +54,7 @@ v1 ships the seven working sections (Hero → Services → Projects → About �
 - **Harness Engineer** — positioning: builds the infrastructure around LLMs (retrieval, orchestration, guardrails, evaluation), not models. **Harness** — the orchestration layer around a foundation model.
 - **Conversion Funnel** — Visit → Trust → Capability → Contact.
 - **Offer** — one of three packaged service scopes (deliverables + timeline, no price in v1).
-- **Contact** — a form submission (Name, Email, Project type, Message) or direct email representing a potential engagement. **Contact Flow** — form → API route → EmailOctopus → contacts metric.
+- **Contact** — a form submission (Name, Email, Message) or direct email representing a potential engagement. **Contact Flow** — form → API route → EmailOctopus → contacts metric.
 - **Project Entry** — one curated case in Projects, framed problem → solution → result, exactly one visual, live/GitHub links.
 - **Engagement** — visit and time-on-site signals from Vercel Web Analytics.
 - **v1** — launch scope (§6.1). Deferred scope is tracked separately (see §6.2).
@@ -132,10 +132,10 @@ No Offer displays a price, rate, or currency. Realizes UJ-1.
 
 #### FR-8: Offer-to-contact path
 
-Each Offer provides a way to start a Contact referencing that Offer. Realizes UJ-1.
+A Visitor can move from an Offer to Contact via the page's single primary CTA; Offer cards carry no per-offer action button. Realizes UJ-1.
 
 **Consequences (testable):**
-- Each Offer card has an actionable CTA to the Contact Flow; Contact completable from any Offer in ≤ 3 taps/clicks.
+- No action button renders on any Offer card; Contact stays reachable from Services in ≤ 3 taps/clicks via the header/hero CTA.
 
 ### 4.4 Projects
 
@@ -231,15 +231,15 @@ The migration is a work statement here, not a Project Entry.
 
 ### 4.8 Contact Flow
 
-**Description:** The funnel's payoff — a working `POST /api/contact` form (Name, Email, Project type, Message) delivering submissions to **EmailOctopus** and feeding the contacts metric. Must work flawlessly, tell the Visitor what happened, and never silently lose a submission. Realizes UJ-1, UJ-3.
+**Description:** The funnel's payoff — a working `POST /api/contact` form (Name, Email, Message) delivering submissions to **EmailOctopus** and feeding the contacts metric. Must work flawlessly, tell the Visitor what happened, and never silently lose a submission. Realizes UJ-1, UJ-3.
 
 #### FR-19: Contact form fields and validation
 
-A Visitor can submit a Contact with Name, Email, Project type (free text), and Message; required fields are validated client-side with clear, accessible errors (decision 2026-08-06: Project type, per resume.md).
+A Visitor can submit a Contact with Name, Email, and Message; required fields are validated client-side with clear, accessible errors.
 
 **Consequences (testable):**
 - Invalid email → inline, screen-reader-accessible error; no send.
-- Form renders four fields; the fourth accepts free text.
+- Form renders three fields (Name, Email, Message).
 
 #### FR-20: Form submission reaches EmailOctopus
 
@@ -375,13 +375,13 @@ v1 ships no analytics dependency beyond Vercel Web Analytics and the contact rou
 
 ## 9. Aesthetic and Tone
 
-**Aesthetic (design.md + UX spines):** glitch/Y2K — near-black backgrounds, neon accents, RGB channel splits, scan lines, all-caps technical headings. **Application principle:** glitches are short (100–400ms), purposeful, snap back, never obscure body text, never glitch CTAs or the contact form, disabled for `prefers-reduced-motion`. Out of v1 scope: a full visual redesign.
+**Aesthetic (design.md + UX spines):** glitch/Y2K — near-black backgrounds, full monochrome palette (black/white/gray, no chromatic color), grayscale glitch offsets, scan lines, all-caps technical headings. **Application principle:** glitches are short (100–400ms), purposeful, snap back, never obscure body text, never glitch CTAs or the contact form, disabled for `prefers-reduced-motion`. Out of v1 scope: a full visual redesign.
 
 **Voice:** first-person, direct, outcome-focused — "I build X for Y" as a Harness Engineer. Every claim carries a magnitude or is not made; honest (no fabricated experience, no self-rated bars); written for a technical buyer scanning in 15–30 seconds.
 
 ## 10. Constraints and Guardrails
 
-- **Privacy** — collect only the four contact fields; data flows to EmailOctopus only. Vercel Web Analytics uses cookies → consent banner (FR-29); no other tracking.
+- **Privacy** — collect only the three contact fields; data flows to EmailOctopus only. Vercel Web Analytics uses cookies → consent banner (FR-29); no other tracking.
 - **Cost** — free tiers only: Vercel (site + Web Analytics), EmailOctopus (email). No paid dependency without decision.
 - **Spam** — honeypot + basic server-side checks (FR-23); no captcha burden on Visitors in v1.
 
@@ -402,7 +402,7 @@ None — all previously open questions (project set, work statements, resume con
 - Work statements sourced from resume.md (decision 2026-08-06).
 - No testimonials in v1 (decision 2026-08-06).
 - No availability statement on the site in v1; tracked as deferred scope (decision 2026-08-06).
-- Contact form: four fields; fourth is free text labeled Project type (decision 2026-08-06).
+- Contact form: three fields (Name, Email, Message); Project type field dropped (decision 2026-08-06).
 - Honeypot + server-side checks suffice for spam; no captcha (assumption).
 - Vercel Web Analytics uses cookies → consent banner required (decision 2026-08-06).
 - Lighthouse ≥ 90 mobile target (assumption; budget in architecture).

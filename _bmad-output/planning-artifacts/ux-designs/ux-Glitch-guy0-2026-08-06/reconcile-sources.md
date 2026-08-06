@@ -16,7 +16,7 @@ Sources confirmed by user: product brief (+ addendum), PRD, market research, and
 - **Resume** — static PDF `/public/resume.pdf`, cache-busted `?v=`.
 - **Analytics** — Vercel Web Analytics + lightweight cookie-consent banner.
 - **NFRs** — WCAG 2.1 AA, contrast ≥ 4.5:1, keyboard nav, visible focus, Lighthouse ≥ 90 mobile, responsive 360/768/1280, touch ≥ 44×44.
-- **Aesthetic** — Nifty Portal glitch/Y2K per teardown: monochrome base, three neons in small doses, all-caps mono headings, scanlines/noise, 100–400ms glitch bursts with snap-back, sharp corners. User's color-mode choice: dark default + light.
+- **Aesthetic** — Nifty Portal glitch/Y2K per teardown: full monochrome (black/white/gray, no chromatic color), all-caps mono headings, scanlines/noise, 100–400ms grayscale-offset glitch bursts with snap-back, sharp corners. User's color-mode choice: dark default + light.
 
 ## Deliberately dropped / deferred (with where they landed)
 
@@ -32,7 +32,7 @@ Sources confirmed by user: product brief (+ addendum), PRD, market research, and
 
 ## Conflict surfaced
 
-- **Contact form fields:** brief says **Budget** field; PRD §4.9 says **Project type (free text)**. Spines carry the PRD set (Name, Email, Project type, Message). Resolution needed at build: add Budget as a 5th optional field, or keep Project type. Logged to memlog as an open item.
+- **Contact form fields:** brief and PRD once split on a 4th field (Budget vs Project type). Resolved 2026-08-06: the field is dropped entirely — the form ships **Name, Email, Message** (3 fields, no project-type/budget question).
 
 ## Notes
 
