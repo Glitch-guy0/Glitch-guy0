@@ -1,6 +1,6 @@
 ---
 title: "Product Brief: Freelance Backend Engineer Portfolio"
-status: finalized
+status: final
 created: 2026-08-06
 updated: 2026-08-06
 ---
