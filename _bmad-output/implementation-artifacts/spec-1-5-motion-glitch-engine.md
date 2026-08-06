@@ -2,11 +2,11 @@
 title: 'Story 1.5: Motion & glitch engine'
 type: 'feature'
 created: '2026-08-06'
-status: 'in-review'
+status: 'done'
 baseline_revision: '3cf7080f138683862c8c47a75b17d0fd285da787'
-final_revision: ''
+final_revision: '3a72a15a299a275a06f900fa88e7c6d8f42b1eca'
 review_loop_iteration: 0
-followup_review_recommended: false
+followup_review_recommended: true
 context: ['_bmad-output/implementation-artifacts/epic-1-context.md']
 warnings: []
 ---
