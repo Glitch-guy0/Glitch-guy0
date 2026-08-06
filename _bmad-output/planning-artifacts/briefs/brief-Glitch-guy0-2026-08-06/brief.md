@@ -1,11 +1,11 @@
 ---
-title: "Product Brief: Freelance Backend Engineer Portfolio"
+title: "Product Brief: Freelance Harness Engineer Portfolio"
 status: final
 created: 2026-08-06
 updated: 2026-08-06
 ---
 
-# Product Brief: Freelance Backend Engineer Portfolio
+# Product Brief: Freelance Harness Engineer Portfolio
 
 ## Positioning Patch (2026-08-06)
 
@@ -13,8 +13,8 @@ updated: 2026-08-06
 
 ## Status
 
-- **v1 — finalized**: working webpages (Hero, Services, Projects, About, Skills, Experience, Contact), contact flow, resume, analytics. Scope locked for build.
-- **v2 — approved**: geo-split `/in` `/us`, buyer-segment positioning, pricing model, availability statement, decision-system blog pages. Direction approved; **deferred to post-launch**.
+- **v1 — finalized**: working webpages (Hero, Services, Projects, About, Skills, Experience, Contact), contact flow (EmailOctopus), resume, analytics. Scope locked for build.
+- **v2 — approved (deferred)**: geo-split `/in` `/us`, buyer-segment positioning, pricing model, availability statement, decision-system blog pages, LinkedIn. Direction approved; **deferred to post-launch** and gated on visitor data (details in Scope → v2).
 
 ## Executive Summary
 
@@ -32,15 +32,15 @@ A working Next.js + Tailwind site on Vercel, structured as one conversion funnel
 
 **Hero → Services → Projects → About → Skills → Experience → Contact**
 
-- **Hero**: first-person outcome line ("I build X for Y").
-- **Services**: 3 packaged offers — Backend/MVP Build (4–8 wks), AI/RAG Integration (1–3 wks), Legacy Stabilization Audit (1 wk) — each with deliverables + timeline. Pricing deferred to v2.
-- **Projects**: problem → solution → result framing; lead with the zero-downtime migration result; one screenshot/GIF per project.
+- **Hero**: first-person outcome line ("I build X for Y"), sourced from the resume.md headline/tagline.
+- **Services**: 3 packaged Harness-aligned offers — AI Feature Build — RAG & Agent Harness (1–4 wks), AI Chat/Agent Platform MVP (4–8 wks), Backend Stabilization & Migration (1–3 wks) — each with deliverables + timeline. Pricing deferred to v2.
+- **Projects**: problem → solution → result framing; lead with the open-source agent SDK; one screenshot/GIF per project. The migration is a work statement in Experience, not a Project Entry (positioning patch).
 - **About**: keep — human, honest, work-related.
-- **Skills**: 6–8 pills (AI/LLM, Backend, DB, AWS, Auth, Architecture). No percentage bars.
-- **Experience**: 2 bullets reframed as outcomes (e.g., "Ran a 3-day zero-downtime migration of 5 production collections").
-- **Contact**: email in header + footer; working `POST /api/contact` form (Name, Email, Budget, Message) wired to EmailOctopus (free tier); same route feeds the contacts metric.
-- **Resume**: static PDF at `/public/resume.pdf` + styled button (cache-bust `?v=`).
-- **Analytics**: Vercel Web Analytics (free, zero-config) for visits + engagement; contacts measured via the contact route.
+- **Skills**: 6–8 pills (harness-first: LLM Harnessing, Vector Search, TS/Node, Backend, DB, AWS, Auth, Architecture). No percentage bars.
+- **Experience**: 2–3 work statements reframed as outcomes (zero-downtime migration, legacy stabilization, Play Store app), from resume.md.
+- **Contact**: email in header + footer; working `POST /api/contact` form (Name, Email, Project type, Message) wired to EmailOctopus (free tier); same route feeds the contacts metric. No testimonials in v1 (decision 2026-08-06).
+- **Resume**: static PDF at `/public/resume.pdf` + styled button (cache-bust `?v=`), generated from resume.md and adapted to the design voice.
+- **Analytics**: Vercel Web Analytics (free, zero-config) for visits + engagement with cookie-consent banner; contacts measured via the contact route.
 
 ## What Makes This Different
 
@@ -58,22 +58,25 @@ A working Next.js + Tailwind site on Vercel, structured as one conversion funnel
 
 - **Contacts** — the number that matters: form submissions flowing into email + metric.
 - **Engagement** — page visits and avg time tracked via Vercel Web Analytics.
-- **Zero friction failures** — no broken links, all projects have live + GitHub links, contact reachable from header and footer.
-- **Proof present at launch** — at least one testimonial (Brigosha manager) and a downloadable freelance resume.
+- **Zero friction failures** — no broken links, declared project links resolve (pre-launch scripted crawl reports zero 404s/timeouts), contact reachable from header and footer.
+- **Proof present at launch** — a downloadable freelance resume (from resume.md, adapted to the design voice).
 
 ## Scope
 
 ### v1 — Finalized (in build scope)
 
-Hero, Services (3 offers, no pricing), Projects, About, Skills, Experience, Contact; contact API + EmailOctopus; resume PDF + button; Vercel Web Analytics + contacts metric; testimonials (ask manager); freelance resume.
+Hero, Services (3 no-price Harness offers), Projects (3 featured entries + showcase), About, Skills (6–8 pills), Experience (2–3 work statements), Contact; contact API + EmailOctopus; resume PDF + button; Vercel Web Analytics + contacts metric + cookie-consent banner; freelance resume (from resume.md). No testimonials.
 
 ### v2 — Approved (deferred, post-launch)
 
-- Geo-split `/in` `/us` + server-side geolocation
-- Buyer-segment positioning
-- Pricing model
-- Availability statement
-- Decision-system blog pages (diagrams + animations)
+All v2 scope is deferred and gated on the first post-launch visitor-data review (Vercel Web Analytics + contacts metric). No item is scheduled; each is decided with real data in hand.
+
+- **Geo-split `/in` `/us` + server-side geolocation** — regional subdirectories via Vercel geolocation; needs visitor data to justify. Emotionally load-bearing for the Builder; revisit at first post-launch metrics review. (Approach record: addendum §3.)
+- **Buyer-segment positioning** — segment-specific framing (US/UK offshore vs India); needs more research + post-launch decision.
+- **Pricing model** — pricing for the three offers; v1 ships deliverables + timeline only; research favors packaged fixed scopes over hourly.
+- **Availability statement** — no real number to commit to pre-launch; the resume PDF may carry one in v1 (resume domain, not the site).
+- **Decision-system blog pages** — diagrams + animations that make invisible backend work visible; feeds awareness-stage traffic; priority is working webpages first.
+- **LinkedIn profile** — freelancing-oriented presence; external build input / decision, not a site feature; high value for freelancing credibility.
 
 **Also out:** visual redesign — the glitch/Y2K aesthetic in `design.md` is the reference, not to be re-designed.
 
@@ -83,5 +86,4 @@ v1 is a working, converting portfolio. v2 adds geo-personalized pages and decisi
 
 ## Open Decisions (blocking nothing in v1)
 
-- Availability statement (deferred to v2).
-- LinkedIn profile, freelance resume content, testimonials, project screenshots/GIFs (build inputs, not decisions).
+- Project screenshots/GIFs, SDK visual, EmailOctopus account + API key, resume PDF export, pre-launch link-check script (build inputs, not decisions).
