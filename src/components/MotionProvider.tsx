@@ -6,7 +6,7 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { BURST_ATTR, clearGlitchBurst, fireGlitchBurst, prefersReducedMotion, REVEAL_ATTR } from '@/lib/motion/engine';
+import { BURST_ATTR, clearGlitchBurst, fireGlitchBurst, prefersReducedMotion, REVEAL_ATTR, setActiveLenis } from '@/lib/motion/engine';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -34,6 +34,7 @@ export function MotionProvider({ children }: MotionProviderProps) {
       smoothWheel: !reduced,
       syncTouch: false,
     });
+    setActiveLenis(lenis);
 
     lenis.on('scroll', ScrollTrigger.update);
     const tick = (time: number) => {
@@ -95,6 +96,7 @@ export function MotionProvider({ children }: MotionProviderProps) {
       mm.revert();
       gsap.ticker.remove(tick);
       lenis.destroy();
+      setActiveLenis(null);
     };
   }, { scope: rootRef });
 

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from 'next/font/google';
+import { Header } from '@/components/Header';
+import { CONTACT_EMAIL } from '@/lib/config';
 import { MotionProvider } from '@/components/MotionProvider';
 import '@/styles/globals.css';
 
@@ -40,7 +42,10 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}
     >
       <body className="antialiased selection:bg-ink-primary selection:text-surface-base">
-        <MotionProvider>{children}</MotionProvider>
+        <MotionProvider>
+          <Header email={CONTACT_EMAIL} />
+          {children}
+        </MotionProvider>
       </body>
     </html>
   );

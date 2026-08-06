@@ -8,6 +8,8 @@
  * carrying both would fire a double burst.
  */
 
+import type Lenis from 'lenis';
+
 export const GLITCH_BURST_CLASS = 'glitch-burst';
 export const REVEAL_ATTR = 'data-reveal';
 export const BURST_ATTR = 'data-glitch-burst';
@@ -43,4 +45,18 @@ export function clearGlitchBurst(el: HTMLElement, durationMs = BURST_MS): void {
   window.setTimeout(() => {
     el.classList.remove(GLITCH_BURST_CLASS);
   }, durationMs + 50);
+}
+
+/**
+ * Active Lenis registry — the MotionProvider island owns the single instance;
+ * the Header island reads it to smooth-scroll (AD-8). Module-level, no DOM.
+ */
+let activeLenis: Lenis | null = null;
+
+export function setActiveLenis(lenis: Lenis | null): void {
+  activeLenis = lenis;
+}
+
+export function getActiveLenis(): Lenis | null {
+  return activeLenis;
 }
