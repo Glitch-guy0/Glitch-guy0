@@ -2,8 +2,9 @@
 title: 'Story 1.1: Scaffold the App Router project'
 type: 'feature'
 created: '2026-08-06'
-status: 'in-review'
+status: 'done'
 baseline_revision: 'd593fb4eb8c0175f1b5ffa03d4fd8ff3a9c4ef65'
+final_revision: '4d8ecedd8ba38672fbc097c92648c1f5854a0794'
 review_loop_iteration: 0
 followup_review_recommended: false
 context: ['_bmad-output/implementation-artifacts/epic-1-context.md']
