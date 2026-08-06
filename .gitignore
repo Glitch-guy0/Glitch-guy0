@@ -1,5 +1,16 @@
-feedback.md
-.DS_Store
+# dependencies
+node_modules
+
+# next.js build output
+.next
+out
+
+# environment variables
 .env*
 !.env.example
-node_modules
+
+# OS files
+.DS_Store
+
+# Local feedback
+feedback.md
