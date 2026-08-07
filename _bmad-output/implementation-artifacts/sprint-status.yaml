@@ -72,6 +72,18 @@ action_items:
     action: "Single-Sourced Content Integration: Establish src/content/ typed copy module in Story 2.1 before constructing sections."
     owner: "Charlie"
     status: done
+  - epic: 2
+    action: "Debug Component Labeling Infrastructure: Implement DebugOverlay island and data-component tags across all 15 UI/section components controlled via NEXT_PUBLIC_DEBUG_COMPONENTS env variable."
+    owner: "Amelia"
+    status: done
+  - epic: 2
+    action: "Test Script Organization: Move axe-scan.cjs into dedicated scripts/testing/ folder and update package runner scripts."
+    owner: "Charlie"
+    status: done
+  - epic: 2
+    action: "Rapid Design Iteration & Polish: Utilize component debug overlay during feedback loops to refine section aesthetics and visual styling to meet project design expectations."
+    owner: "Prajwal & Sally"
+    status: in-progress
 
   # === Epic 2: Trust & Capability Sections ===
   epic-2: done
@@ -83,7 +95,7 @@ action_items:
   2-6-about-skills-sections: done
   2-7-experience-work-statements: done
   2-8-responsive-verification: done
-  epic-2-retrospective: optional
+  epic-2-retrospective: done
 
   # === Epic 3: Contact Flow ===
   epic-3: backlog
