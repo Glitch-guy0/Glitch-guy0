@@ -7,6 +7,7 @@ import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { SkillsSection } from '@/components/sections/SkillsSection';
 import { ExperienceSection } from '@/components/sections/ExperienceSection';
+import { ContactSection } from '@/components/sections/ContactSection';
 
 export default function Home() {
   return (
@@ -144,16 +145,7 @@ export default function Home() {
               Contact
             </h2>
           </div>
-          <p className="max-w-xl font-mono text-mono-meta text-ink-secondary">
-            Contact form lands in Epic 3. In the meantime,{' '}
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="text-ink-primary underline underline-offset-4 hover:text-ink-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-primary"
-            >
-              email directly
-            </a>
-            .
-          </p>
+          <ContactSection />
         </section>
 
       </div>

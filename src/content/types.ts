@@ -73,6 +73,27 @@ export interface WorkStatement {
   detail: string;
 }
 
+export interface ContactContent {
+  /** Section heading copy */
+  heading: string;
+  /** One supporting line under the heading */
+  subhead: string;
+  /** Field labels for the controlled inputs */
+  nameLabel: string;
+  emailLabel: string;
+  messageLabel: string;
+  /** Submit button label while idle/error (pre-submit) */
+  submitLabel: string;
+  /** Submit button label while a request is in flight */
+  submittingLabel: string;
+  /** Inline confirmation shown after a successful submit */
+  successMessage: string;
+  /** Inline error shown after a failed submit */
+  errorMessage: string;
+  /** Retry button label on the error block */
+  retryLabel: string;
+}
+
 export interface SiteContent {
   hero: HeroContent;
   offers: Offer[];
@@ -82,4 +103,5 @@ export interface SiteContent {
   /** 6–8 skill domain pills — domain names, not tool lists (FR-16) */
   skillPills: string[];
   workStatements: WorkStatement[];
+  contact: ContactContent;
 }

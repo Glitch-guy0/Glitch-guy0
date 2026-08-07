@@ -157,4 +157,18 @@ export const siteContent: SiteContent = {
         'Built and launched an iOS and Android app using the New Architecture, consuming real-time charger state over MQTT and integrating with operator-facing Hono backend APIs.',
     },
   ],
+
+  // ── Contact (FR-19–FR-22) ──────────────────────────────────────────────
+  contact: {
+    heading: 'Contact',
+    subhead: "Have a project in mind? Tell me what you're building.",
+    nameLabel: 'Name',
+    emailLabel: 'Email',
+    messageLabel: 'Message',
+    submitLabel: 'SEND MESSAGE',
+    submittingLabel: 'SUBMITTING…',
+    successMessage: "Message sent. I'll get back to you shortly.",
+    errorMessage: "Something went wrong and your message wasn't sent.",
+    retryLabel: 'RETRY',
+  },
 };
