@@ -2,8 +2,9 @@
 title: 'Epic 3 — Contact Flow (3.1–3.4 complete)'
 type: 'feature'
 created: '2026-08-07'
-status: 'in-review'
+status: 'done'
 baseline_revision: 'ada19e2b2251e179b5221ca21883d4fdd553928c'
+final_revision: '2dced2e'
 review_loop_iteration: 2
 followup_review_recommended: true
 context: []

@@ -98,11 +98,11 @@ action_items:
   epic-2-retrospective: done
 
   # === Epic 3: Contact Flow ===
-  epic-3: backlog
-  3-1-shared-validation-schema-and-wire-contract: backlog
-  3-2-contact-api-route: backlog
-  3-3-contact-form-island: backlog
-  3-4-contacts-metric-and-spam-verification: backlog
+  epic-3: done
+  3-1-shared-validation-schema-and-wire-contract: done
+  3-2-contact-api-route: done
+  3-3-contact-form-island: done
+  3-4-contacts-metric-and-spam-verification: done
   epic-3-retrospective: optional
 
   # === Epic 4: Resume ===
