@@ -1,26 +1,26 @@
 installation:
   version: 6.10.0
   installDate: 2026-08-05T18:41:17.373Z
-  lastUpdated: 2026-08-05T18:41:17.373Z
+  lastUpdated: 2026-08-07T08:19:53.488Z
 modules:
   - name: core
     version: 6.10.0
     installDate: 2026-08-05T18:41:17.128Z
-    lastUpdated: 2026-08-05T18:41:17.372Z
+    lastUpdated: 2026-08-07T08:19:53.484Z
     source: built-in
     npmPackage: null
     repoUrl: null
   - name: bmm
     version: 6.10.0
     installDate: 2026-08-05T18:41:17.103Z
-    lastUpdated: 2026-08-05T18:41:17.372Z
+    lastUpdated: 2026-08-07T08:19:53.485Z
     source: built-in
     npmPackage: null
     repoUrl: null
   - name: wds
     version: v0.4.3
     installDate: 2026-08-05T18:41:17.337Z
-    lastUpdated: 2026-08-05T18:41:17.373Z
+    lastUpdated: 2026-08-07T08:19:53.488Z
     source: external
     npmPackage: bmad-wds
     repoUrl: https://github.com/bmad-code-org/bmad-method-wds-expansion
@@ -31,3 +31,4 @@ ides:
   - kilo
   - kiro
   - opencode
+  - claude-code
