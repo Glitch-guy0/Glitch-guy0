@@ -57,7 +57,21 @@ development_status:
   1-5-motion-glitch-engine: done
   1-6-layout-shell-header-footer: done
   1-7-accessibility-floor: done
-  epic-1-retrospective: optional
+  epic-1-retrospective: done
+
+action_items:
+  - epic: 1
+    action: "Strict Design Fidelity in Epic 2: Implement Hero, Services, Projects, About, Skills, and Experience sections adhering exactly to design.md aesthetic tokens and layout grids."
+    owner: "Amelia & Sally"
+    status: open
+  - epic: 1
+    action: "Visual Design Audit Gate: Conduct visual inspection and contrast checks for each section component in Epic 2 prior to marking stories ready for review."
+    owner: "Dana"
+    status: open
+  - epic: 1
+    action: "Single-Sourced Content Integration: Establish src/content/ typed copy module in Story 2.1 before constructing sections."
+    owner: "Charlie"
+    status: open
 
   # === Epic 2: Trust & Capability Sections ===
   epic-2: backlog
