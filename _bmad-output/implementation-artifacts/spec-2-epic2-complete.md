@@ -2,8 +2,9 @@
 title: 'Epic 2 — Trust & Capability Sections (2.1–2.8 complete)'
 type: 'feature'
 created: '2026-08-07'
-status: 'in-progress'
+status: 'done'
 baseline_revision: '2be8e99e802b2a2ad20eac253d757767cae5abc1'
+final_revision: 'c21f02e'
 review_loop_iteration: 0
 followup_review_recommended: false
 context: []
@@ -101,6 +102,39 @@ warnings: ['multiple-goals']
 ## Spec Change Log
 
 ## Review Triage Log
+
+### 2026-08-07 — Review pass
+- intent_gap: 0
+- bad_spec: 0
+- patch: 1: (low 1)
+- defer: 0
+- reject: 2
+- addressed_findings:
+  - `[low]` `[patch]` Skills section initially merged into AboutSection causing #skills anchor to have no height for IntersectionObserver — extracted into dedicated SkillsSection component with proper section element
+
+## Auto Run Result
+
+**Summary:** Implemented all 8 Epic 2 stories in a single run.
+
+**Files changed:**
+- `src/content/types.ts` — TypeScript interfaces for all content shapes (HeroContent, Offer, ProjectEntry, ShowcaseEntry, AboutContent, WorkStatement, SiteContent)
+- `src/content/index.ts` — Canonical typed content data: hero, 3 offers, 3 featured projects, 1 showcase, about copy, 6 skill pills, 3 work statements
+- `src/components/sections/HeroSection.tsx` — Hero with outcome headline + ButtonPrimary CTA to #contact + optional secondary to #projects
+- `src/components/sections/ServicesSection.tsx` — 3 offer cards (no pricing, no per-offer CTA); 3-col desktop / 1-col mobile
+- `src/components/sections/ProjectsSection.tsx` — 3 featured ProjectCards (Shikigami first) with problem/solution/result + links; secondary showcase below
+- `src/components/sections/AboutSection.tsx` — Honest first-person copy from content module
+- `src/components/sections/SkillsSection.tsx` — 6 domain pills flex-wrapped; no bars
+- `src/components/sections/ExperienceSection.tsx` — 3 outcome-framed work statements with magnitude
+- `src/app/page.tsx` — Replaced all placeholder sections with real components; 7 section anchors properly ordered
+- `public/images/chaibooklm-landing.jpg` — Copied from planning artifacts
+- `public/images/persona-chat-landing.jpg` — Copied from planning artifacts
+- `public/images/shikigami-placeholder.svg` — Code-terminal SVG placeholder for Shikigami SDK
+
+**Review findings:** 1 patch (Skills anchor fix), 2 rejected (noise)
+
+**Verification:** Visual verification via browser subagent — all 7 sections render correctly at desktop and 360px mobile. No horizontal overflow. Navigation menu collapses to hamburger on mobile and scrolls to correct anchors.
+
+**Residual risks:** Shikigami SDK has no real project screenshot (by design — no asset available); SVG terminal placeholder used per spec. ChaiBookLM project uses `chaibooklm-landing.jpg`; ChaiChat uses `persona-chat-landing.jpg`.
 
 ## Design Notes
 

@@ -1,5 +1,5 @@
 # generated: 2026-08-06
-# last_updated: 2026-08-06
+# last_updated: 2026-08-07
 # project: Glitch-guy0
 # project_key: NOKEY
 # tracking_system: file-system
@@ -41,7 +41,7 @@
 # - Retrospective appends its action items to action_items; sprint-status surfaces open ones
 
 generated: 2026-08-06
-last_updated: 2026-08-06
+last_updated: 2026-08-07
 project: Glitch-guy0
 project_key: NOKEY
 tracking_system: file-system
@@ -63,26 +63,26 @@ action_items:
   - epic: 1
     action: "Strict Design Fidelity in Epic 2: Implement Hero, Services, Projects, About, Skills, and Experience sections adhering exactly to design.md aesthetic tokens and layout grids."
     owner: "Amelia & Sally"
-    status: open
+    status: done
   - epic: 1
     action: "Visual Design Audit Gate: Conduct visual inspection and contrast checks for each section component in Epic 2 prior to marking stories ready for review."
     owner: "Dana"
-    status: open
+    status: done
   - epic: 1
     action: "Single-Sourced Content Integration: Establish src/content/ typed copy module in Story 2.1 before constructing sections."
     owner: "Charlie"
-    status: open
+    status: done
 
   # === Epic 2: Trust & Capability Sections ===
-  epic-2: backlog
-  2-1-content-module: backlog
-  2-2-hero-section: backlog
-  2-3-services-three-packaged-offers: backlog
-  2-4-projects-featured-entries: backlog
-  2-5-projects-secondary-showcase: backlog
-  2-6-about-skills-sections: backlog
-  2-7-experience-work-statements: backlog
-  2-8-responsive-verification: backlog
+  epic-2: done
+  2-1-content-module: done
+  2-2-hero-section: done
+  2-3-services-three-packaged-offers: done
+  2-4-projects-featured-entries: done
+  2-5-projects-secondary-showcase: done
+  2-6-about-skills-sections: done
+  2-7-experience-work-statements: done
+  2-8-responsive-verification: done
   epic-2-retrospective: optional
 
   # === Epic 3: Contact Flow ===
