@@ -18,6 +18,7 @@ export function NavLink({
 }: NavLinkProps) {
   return (
     <a
+      data-component="NavLink"
       aria-current={active ? 'true' : undefined}
       className={`nav-flicker inline-flex min-h-11 items-center py-2 font-mono text-mono-label uppercase transition-colors duration-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-primary ${
         active

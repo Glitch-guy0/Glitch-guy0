@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "axe:scan": "node scripts/axe-scan.cjs"
+    "axe:scan": "node scripts/testing/axe-scan.cjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

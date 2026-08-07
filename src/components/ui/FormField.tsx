@@ -41,7 +41,7 @@ export function FormField({
   const describedBy = error ? `${id}-error` : hint ? `${id}-hint` : undefined;
 
   return (
-    <div className="flex flex-col gap-1.5">
+    <div data-component="FormField" className="flex flex-col gap-1.5">
       <label htmlFor={id} className="font-mono text-mono-label uppercase text-ink-secondary">
         {label}
       </label>

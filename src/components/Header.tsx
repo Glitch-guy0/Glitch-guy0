@@ -123,6 +123,7 @@ export function Header({ email }: HeaderProps) {
   return (
     <header
       ref={headerRef}
+      data-component="Header"
       className={`fixed inset-x-0 top-0 z-70 bg-surface-base/80 backdrop-blur-sm transition-[border-color,background-color] duration-150 ${
         scrolled ? 'border-b border-border-hairline' : 'border-b border-transparent'
       }`}

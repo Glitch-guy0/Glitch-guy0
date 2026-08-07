@@ -10,7 +10,7 @@ export function ExperienceSection() {
   const { workStatements } = siteContent;
 
   return (
-    <div className="flex flex-col gap-8">
+    <div data-component="ExperienceSection" className="flex flex-col gap-8">
       <div className="flex flex-col gap-6">
         {workStatements.map((stmt, i) => (
           <article

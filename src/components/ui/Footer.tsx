@@ -25,7 +25,7 @@ export function Footer({
   className = '',
 }: FooterProps) {
   return (
-    <footer className={`border-t border-border-hairline bg-surface-base ${className}`}>
+    <footer data-component="Footer" className={`border-t border-border-hairline bg-surface-base ${className}`}>
       <div className="mx-auto flex max-w-content-max flex-col gap-4 px-5 py-8 font-mono text-mono-meta text-ink-secondary desktop:flex-row desktop:items-center desktop:justify-between desktop:px-12">
         <a
           href={`mailto:${email}`}

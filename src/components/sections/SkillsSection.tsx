@@ -9,7 +9,7 @@ export function SkillsSection() {
   const { skillPills } = siteContent;
 
   return (
-    <div className="flex flex-col gap-8">
+    <div data-component="SkillsSection" className="flex flex-col gap-8">
       <p className="max-w-lg font-sans text-body text-ink-secondary">
         Skill domains I work across — named by capability area, not tool list.
       </p>

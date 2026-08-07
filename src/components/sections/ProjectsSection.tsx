@@ -12,7 +12,7 @@ export function ProjectsSection() {
   const { featuredProjects, showcaseProjects } = siteContent;
 
   return (
-    <div className="flex flex-col gap-14">
+    <div data-component="ProjectsSection" className="flex flex-col gap-14">
       {/* ── Featured entries ─────────────────────────────────────────────── */}
       <div className="grid grid-cols-1 gap-6 tablet:grid-cols-2 desktop:grid-cols-3">
         {featuredProjects.map((project) => (

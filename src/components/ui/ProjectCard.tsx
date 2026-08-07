@@ -16,6 +16,7 @@ export interface ProjectCardProps {
 export function ProjectCard({ title, visual, body, metadata, className = '' }: ProjectCardProps) {
   return (
     <article
+      data-component="ProjectCard"
       className={`group rounded-md border border-border-hairline bg-surface-raised transition-colors duration-150 hover:border-ink-primary ${className}`}
     >
       <div className="card-tear overflow-hidden rounded-t-md border-b border-border-hairline">

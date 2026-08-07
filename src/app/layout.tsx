@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, IBM_Plex_Mono } from 'next/font/google';
 import { Header } from '@/components/Header';
 import { CONTACT_EMAIL } from '@/lib/config';
 import { MotionProvider } from '@/components/MotionProvider';
+import { DebugOverlay } from '@/components/DebugOverlay';
 import '@/styles/globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -52,6 +53,7 @@ export default function RootLayout({
           <Header email={CONTACT_EMAIL} />
           {children}
         </MotionProvider>
+        <DebugOverlay />
       </body>
     </html>
   );

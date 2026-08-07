@@ -12,7 +12,7 @@ export function HeroSection() {
   const { hero } = siteContent;
 
   return (
-    <div className="flex min-h-[calc(100dvh-5rem)] flex-col justify-center gap-8 pb-16 pt-8 tablet:gap-10">
+    <div data-component="HeroSection" className="flex min-h-[calc(100dvh-5rem)] flex-col justify-center gap-8 pb-16 pt-8 tablet:gap-10">
       {/* Outcome headline — sentence-case, display size (UX-DR2) */}
       <div className="flex flex-col gap-4">
         <h1

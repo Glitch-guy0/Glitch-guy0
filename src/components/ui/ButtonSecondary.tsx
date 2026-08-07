@@ -18,6 +18,7 @@ export function ButtonSecondary({
 }: ButtonSecondaryProps) {
   return (
     <a
+      data-component="ButtonSecondary"
       href={disabled ? undefined : href}
       aria-disabled={disabled || undefined}
       tabIndex={disabled ? -1 : undefined}

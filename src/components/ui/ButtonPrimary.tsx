@@ -19,6 +19,7 @@ export function ButtonPrimary({
 }: ButtonPrimaryProps) {
   return (
     <a
+      data-component="ButtonPrimary"
       href={disabled ? undefined : href}
       aria-disabled={disabled || undefined}
       tabIndex={disabled ? -1 : undefined}

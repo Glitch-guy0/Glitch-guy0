@@ -13,6 +13,7 @@ export interface SectionNumberProps {
 export function SectionNumber({ children, className = '' }: SectionNumberProps) {
   return (
     <span
+      data-component="SectionNumber"
       aria-hidden="true"
       className={`font-mono text-mono-label text-ink-primary ${className}`}
     >

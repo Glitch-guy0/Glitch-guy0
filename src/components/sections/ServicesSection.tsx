@@ -10,7 +10,7 @@ export function ServicesSection() {
   const { offers } = siteContent;
 
   return (
-    <div className="flex flex-col gap-10">
+    <div data-component="ServicesSection" className="flex flex-col gap-10">
       <p className="max-w-lg font-sans text-body text-ink-secondary">
         Three ways to work together — scoped engagements with clear deliverables. Contact to scope
         yours.
