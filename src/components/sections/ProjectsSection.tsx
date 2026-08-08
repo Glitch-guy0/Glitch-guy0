@@ -23,7 +23,7 @@ export function ProjectsSection() {
               /* Fixed 16:9 aspect wrapper — no layout shift (UX-DR12) */
               <div className="relative aspect-video w-full overflow-hidden bg-surface-raised">
                 {project.imageSrc.endsWith('.svg') ? (
-                  /* SVG placeholder — use regular img for SVG support */
+                  /* next/image cannot optimize SVG sources, so use a plain img for SVGs */
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={project.imageSrc}

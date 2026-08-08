@@ -128,7 +128,7 @@ export default function Home() {
           <ExperienceSection />
         </section>
 
-        {/* ── Contact placeholder (Epic 3) ─────────────────────────────── */}
+        {/* ── Contact ──────────────────────────────────────────────────── */}
         <section
           id="contact"
           aria-labelledby="contact-heading"

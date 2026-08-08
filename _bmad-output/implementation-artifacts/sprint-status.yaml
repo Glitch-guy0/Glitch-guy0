@@ -1,5 +1,5 @@
 # generated: 2026-08-06
-# last_updated: 2026-08-08 (epic-5 done)
+# last_updated: 2026-08-08 (epic-6 in-progress: 6-1 done)
 # project: Glitch-guy0
 # project_key: NOKEY
 # tracking_system: file-system
@@ -41,7 +41,7 @@
 # - Retrospective appends its action items to action_items; sprint-status surfaces open ones
 
 generated: 2026-08-06
-last_updated: 2026-08-08 (epic-5 done)
+last_updated: 2026-08-08 (epic-6 in-progress: 6-1 done)
 project: Glitch-guy0
 project_key: NOKEY
 tracking_system: file-system
@@ -93,8 +93,8 @@ development_status:
   epic-5-retrospective: optional
 
   # === Epic 6: Launch Readiness & Quality Gates ===
-  epic-6: backlog
-  6-1-placeholder-purge-and-content-audit: backlog
+  epic-6: in-progress
+  6-1-placeholder-purge-and-content-audit: done
   6-2-pre-launch-link-check-crawl: backlog
   6-3-accessibility-verification-in-both-modes: backlog
   6-4-performance-budget: backlog

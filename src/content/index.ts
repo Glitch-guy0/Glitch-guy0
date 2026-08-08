@@ -69,7 +69,7 @@ export const siteContent: SiteContent = {
       result:
         'Ships a working agent in under 30 minutes from `npm install`. Provider-agnostic across OpenAI, OpenRouter, Groq, and local vLLM. Open-sourced with an announcement that reached 2k+ views.',
       githubUrl: 'https://github.com/Glitch-guy0/shikigami-agent-sdk',
-      imageSrc: '/images/shikigami-placeholder.svg',
+      imageSrc: '/images/shikigami-terminal.svg',
       imageAlt:
         'Code terminal showing Shikigami Agent SDK initialization: import { Agent } from "shikigami"; const agent = new Agent({ memory, tools, guardrails });',
       stack: 'TypeScript · Node.js · OpenAI API · Express/Next.js compatible',
