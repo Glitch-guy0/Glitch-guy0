@@ -12,7 +12,8 @@
     "axe:scan": "node scripts/testing/axe-scan.cjs",
     "contrast:check": "node scripts/testing/contrast-check.cjs",
     "link:check": "node scripts/testing/link-check.cjs",
-    "perf:budget": "node scripts/testing/perf-budget.cjs"
+    "perf:budget": "node scripts/testing/perf-budget.cjs",
+    "prelaunch:check": "npm run axe:scan && npm run contrast:check && npm run link:check && npm run perf:budget"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
