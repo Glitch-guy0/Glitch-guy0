@@ -4,6 +4,8 @@ import { Header } from '@/components/Header';
 import { CONTACT_EMAIL } from '@/lib/config';
 import { MotionProvider } from '@/components/MotionProvider';
 import { DebugOverlay } from '@/components/DebugOverlay';
+import { CookieBanner } from '@/components/CookieBanner';
+import { Analytics } from '@/components/Analytics';
 import '@/styles/globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -54,6 +56,8 @@ export default function RootLayout({
           {children}
         </MotionProvider>
         <DebugOverlay />
+        <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );

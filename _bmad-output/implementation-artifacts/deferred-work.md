@@ -31,3 +31,15 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-4-resume.md`
   summary: The only automated validity check on the generated resume PDF is a byte-size floor (`MIN_PDF_SIZE`); nothing asserts the extracted PDF text actually reflects current `src/content/` values, so a logic error that emptied a content array would still produce a "successful" build.
   evidence: Raised by the Blind Hunter review; this story's Verification section only specifies manual PDF-opens-without-error checks, not automated content-match assertions.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-analytics-consent.md`
+  summary: `CookieBanner`'s window-level `Escape` listener declines consent on any Escape press while the banner is visible, even if the keypress was meant for an unrelated control (e.g. closing the mobile nav sheet, which also listens globally) and the banner never had focus.
+  evidence: Raised by the Blind Hunter review; `Header.tsx` already uses the same unscoped global-listener pattern for its own state, so this isn't a novel anti-pattern, but here the side effect (a one-way opt-out with no revoke UI) is more consequential than the pre-existing case.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-analytics-consent.md`
+  summary: Once a visitor Accepts or Declines, there is no "manage cookie preferences" control anywhere on the site to change that choice later short of manually clearing `localStorage`.
+  evidence: Raised by the Blind Hunter review; the current epic scope (Stories 5.1-5.3) never calls for a revoke/change-consent surface, so it's a product-scope gap rather than a defect in what was built.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-5-analytics-consent.md`
+  summary: `CookieBanner`'s `getServerSnapshot` always returns `null` (banner visible) for SSR/first paint, so returning visitors who already stored a consent choice can see a brief flash of the banner before `useSyncExternalStore` re-syncs to the real stored value client-side.
+  evidence: Raised by the Blind Hunter review; explicitly a known trade-off of the chosen hydration-safe pattern (documented in the component's own comment), not a functional break of the "never reappears" requirement, but a real cosmetic flicker on repeat visits.
