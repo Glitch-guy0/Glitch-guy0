@@ -8,7 +8,7 @@ followup_review_recommended: false
 context: []
 warnings: []
 baseline_revision: 'd65cb0f4315c6da4ced1a521910fbd927ee3ea26'
-final_revision: 'PENDING_COMMIT'
+final_revision: '5947001a0dbfb4caf0735d0865e471b6d92d58db'
 ---
 
 <intent-contract>
