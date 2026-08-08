@@ -1,5 +1,5 @@
 # generated: 2026-08-06
-# last_updated: 2026-08-07 (retro completed)
+# last_updated: 2026-08-08 (epic-5 done)
 # project: Glitch-guy0
 # project_key: NOKEY
 # tracking_system: file-system
@@ -41,7 +41,7 @@
 # - Retrospective appends its action items to action_items; sprint-status surfaces open ones
 
 generated: 2026-08-06
-last_updated: 2026-08-08 (epic-4 retro completed)
+last_updated: 2026-08-08 (epic-5 done)
 project: Glitch-guy0
 project_key: NOKEY
 tracking_system: file-system
@@ -58,6 +58,49 @@ development_status:
   1-6-layout-shell-header-footer: done
   1-7-accessibility-floor: done
   epic-1-retrospective: done
+
+  # === Epic 2: Trust & Capability Sections ===
+  epic-2: done
+  2-1-content-module: done
+  2-2-hero-section: done
+  2-3-services-three-packaged-offers: done
+  2-4-projects-featured-entries: done
+  2-5-projects-secondary-showcase: done
+  2-6-about-skills-sections: done
+  2-7-experience-work-statements: done
+  2-8-responsive-verification: done
+  epic-2-retrospective: done
+
+  # === Epic 3: Contact Flow ===
+  epic-3: done
+  3-1-shared-validation-schema-and-wire-contract: done
+  3-2-contact-api-route: done
+  3-3-contact-form-island: done
+  3-4-contacts-metric-and-spam-verification: done
+  epic-3-retrospective: done
+
+  # === Epic 4: Resume ===
+  epic-4: done
+  4-1-resume-pdf-generation: done
+  4-2-resume-download-button: done
+  epic-4-retrospective: done
+
+  # === Epic 5: Analytics & Consent ===
+  epic-5: done
+  5-1-cookie-consent-banner: done
+  5-2-analytics-app-code-injection: done
+  5-3-contacts-metric-measurement: done
+  epic-5-retrospective: optional
+
+  # === Epic 6: Launch Readiness & Quality Gates ===
+  epic-6: backlog
+  6-1-placeholder-purge-and-content-audit: backlog
+  6-2-pre-launch-link-check-crawl: backlog
+  6-3-accessibility-verification-in-both-modes: backlog
+  6-4-performance-budget: backlog
+  6-5-deployment-and-environment-wiring: backlog
+  epic-6-retrospective: optional
+
 
 action_items:
   - epic: 1
@@ -104,45 +147,3 @@ action_items:
     action: "Resume Content Density Rethink: Trim and restructure resume content in src/content/ (work statements, skills) so the generated PDF reads as a tight one-pager. Content-only change; no code fix needed."
     owner: "Prajwal & Sally"
     status: open
-
-  # === Epic 2: Trust & Capability Sections ===
-  epic-2: done
-  2-1-content-module: done
-  2-2-hero-section: done
-  2-3-services-three-packaged-offers: done
-  2-4-projects-featured-entries: done
-  2-5-projects-secondary-showcase: done
-  2-6-about-skills-sections: done
-  2-7-experience-work-statements: done
-  2-8-responsive-verification: done
-  epic-2-retrospective: done
-
-  # === Epic 3: Contact Flow ===
-  epic-3: done
-  3-1-shared-validation-schema-and-wire-contract: done
-  3-2-contact-api-route: done
-  3-3-contact-form-island: done
-  3-4-contacts-metric-and-spam-verification: done
-  epic-3-retrospective: done
-
-  # === Epic 4: Resume ===
-  epic-4: done
-  4-1-resume-pdf-generation: done
-  4-2-resume-download-button: done
-  epic-4-retrospective: done
-
-  # === Epic 5: Analytics & Consent ===
-  epic-5: backlog
-  5-1-cookie-consent-banner: backlog
-  5-2-analytics-app-code-injection: backlog
-  5-3-contacts-metric-measurement: backlog
-  epic-5-retrospective: optional
-
-  # === Epic 6: Launch Readiness & Quality Gates ===
-  epic-6: backlog
-  6-1-placeholder-purge-and-content-audit: backlog
-  6-2-pre-launch-link-check-crawl: backlog
-  6-3-accessibility-verification-in-both-modes: backlog
-  6-4-performance-budget: backlog
-  6-5-deployment-and-environment-wiring: backlog
-  epic-6-retrospective: optional
