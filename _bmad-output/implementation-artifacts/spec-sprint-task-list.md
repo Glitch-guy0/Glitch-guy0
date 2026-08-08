@@ -2,12 +2,13 @@
 title: 'Sprint task list & status refresh (Epic 6)'
 type: 'chore'
 created: '2026-08-08'
-status: 'in-review'
+status: 'done'
 review_loop_iteration: 0
 followup_review_recommended: false
 context: []
 warnings: []
 baseline_revision: '2e81bc2a1bee501a36bc396793528fa064a08637'
+final_revision: '58700f8b4cb4a24925b0a50ba07b9180c8a4ef6d'
 ---
 
 <intent-contract>
