@@ -55,3 +55,11 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-6-2-pre-launch-link-check-crawl.md`
   summary: The Shikigami Agent SDK GitHub repository (`https://github.com/Glitch-guy0/shikigami-agent-sdk`) genuinely 404s — confirmed live via both the new link-check script and an independent `curl` request.
   evidence: This is real shipped content (a Story 6.1-audited "clean" project link) now proven dead by Story 6.2's crawl tool; needs a human decision (make the repo public, fix the URL, or fix the slug) that this workflow cannot make unattended.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-6-3-accessibility-verification-both-modes.md`
+  summary: `contrast-check.cjs` and `axe-scan.cjs` both exist as repeatable npm commands but neither is wired into CI or a pre-commit/pre-push hook (no `.github/workflows`, no `.husky` in this repo) — a future edit to `globals.css` could silently reintroduce a contrast regression with nothing automatically catching it.
+  evidence: Raised by both review passes on Story 6.3; wiring these into an actual gate is a deployment/pipeline decision that belongs with Story 6.5, not this story.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-6-3-accessibility-verification-both-modes.md`
+  summary: `contrast-check.cjs` has several latent robustness gaps that aren't triggered by the current `globals.css` but would misfire silently if the file changed: its `@theme` block regex assumes no brace appears on its own line inside that block; token extraction only accepts 6-digit hex (not `rgb()`/`hsl()`/3-digit hex); a duplicated token declaration would silently use the first match instead of the CSS-cascade-correct last one; and the manual brace-counter scoping the light-mode block doesn't account for braces inside comments or `url()` strings.
+  evidence: Raised across both review passes on Story 6.3; none are live bugs against the current file (verified), all are latent parser fragility that only matters if `globals.css`'s structure changes in specific ways.

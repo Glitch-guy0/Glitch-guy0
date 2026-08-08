@@ -10,6 +10,7 @@
     "start": "next start",
     "lint": "eslint",
     "axe:scan": "node scripts/testing/axe-scan.cjs",
+    "contrast:check": "node scripts/testing/contrast-check.cjs",
     "link:check": "node scripts/testing/link-check.cjs"
   },
   "dependencies": {
