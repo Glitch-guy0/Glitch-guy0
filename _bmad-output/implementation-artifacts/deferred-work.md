@@ -19,3 +19,15 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-3-epic3-complete.md`
   summary: No observability (count/log) exists for honeypot trips on `/api/contact`, so there's no way to confirm from logs whether the anti-spam mechanism is doing anything.
   evidence: Raised by the adversarial reviewer on review pass 3; purely an observability gap, not a correctness bug.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-4-resume.md`
+  summary: `predev` regenerates `/public/resume.pdf` once at `next dev` startup only; editing `src/content/index.ts` during an already-running dev session leaves the PDF stale until the dev server restarts.
+  evidence: Raised by the Edge Case Hunter review; confirmed `predev` has no file-watch mechanism and `next dev` itself never re-invokes the generation script.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-4-resume.md`
+  summary: The footer's resume link cache-busting query (`resumeHref="/resume.pdf?v=1"` in `src/app/page.tsx`) is a static literal, not tied to a content hash or build timestamp — a redeployed PDF with unchanged content-bearing fields but no manual `?v=` bump can serve a stale cached copy to returning visitors.
+  evidence: Raised by the Blind Hunter review; `page.tsx` predates this story's baseline revision and was not part of this diff, so the fix is out of this story's scope.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-4-resume.md`
+  summary: The only automated validity check on the generated resume PDF is a byte-size floor (`MIN_PDF_SIZE`); nothing asserts the extracted PDF text actually reflects current `src/content/` values, so a logic error that emptied a content array would still produce a "successful" build.
+  evidence: Raised by the Blind Hunter review; this story's Verification section only specifies manual PDF-opens-without-error checks, not automated content-match assertions.

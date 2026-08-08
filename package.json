@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "bun run scripts/generate-resume.ts",
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "bun run scripts/generate-resume.ts && next build",
+    "generate:resume": "bun run scripts/generate-resume.ts",
     "start": "next start",
     "lint": "eslint",
     "axe:scan": "node scripts/testing/axe-scan.cjs"
@@ -28,6 +30,7 @@
     "eslint": "^9.0.0",
     "eslint-config-next": "16.3.0",
     "jsdom": "^30.0.1",
+    "pdf-lib": "^1.17.1",
     "typescript": "^5.5.3"
   }
 }

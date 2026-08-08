@@ -1,4 +1,5 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react';
+import { ButtonPrimary } from './ButtonPrimary';
 
 export interface FooterLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
@@ -45,12 +46,15 @@ export function Footer({
           </nav>
         )}
         {resumeHref && (
-          <a
+          <ButtonPrimary
             href={resumeHref}
-            className="transition-colors duration-100 hover:text-ink-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-primary"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+            className="min-h-11 min-w-11"
           >
-            resume.pdf
-          </a>
+            resume
+          </ButtonPrimary>
         )}
         {copyright && <p className="text-ink-secondary">{copyright}</p>}
       </div>
