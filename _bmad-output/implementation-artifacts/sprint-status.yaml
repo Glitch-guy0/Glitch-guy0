@@ -95,7 +95,7 @@ development_status:
   # === Epic 6: Launch Readiness & Quality Gates ===
   epic-6: in-progress
   6-1-placeholder-purge-and-content-audit: done
-  6-2-pre-launch-link-check-crawl: backlog
+  6-2-pre-launch-link-check-crawl: done
   6-3-accessibility-verification-in-both-modes: backlog
   6-4-performance-budget: backlog
   6-5-deployment-and-environment-wiring: backlog

@@ -43,3 +43,15 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-5-analytics-consent.md`
   summary: `CookieBanner`'s `getServerSnapshot` always returns `null` (banner visible) for SSR/first paint, so returning visitors who already stored a consent choice can see a brief flash of the banner before `useSyncExternalStore` re-syncs to the real stored value client-side.
   evidence: Raised by the Blind Hunter review; explicitly a known trade-off of the chosen hydration-safe pattern (documented in the component's own comment), not a functional break of the "never reappears" requirement, but a real cosmetic flicker on repeat visits.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-6-1-placeholder-purge-and-content-audit.md`
+  summary: Confirming real `CONTACT_EMAIL`/`EMAIL_OCTOPUS_*` values are actually set in every relevant Vercel environment before launch is still a manual step — no automated check exists.
+  evidence: A code-level enforcement attempt was tried in Story 6.1 and reverted because it broke Vercel preview builds (see that spec's Spec Change Log); tracked here for Story 6.5 to pick up as a manual deployment checklist item.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-6-2-pre-launch-link-check-crawl.md`
+  summary: `link-check.cjs` has no de-duplication (repeated URLs on the page are fetched multiple times, wasting time and risking extra rate-limit/bot-block hits), no retry/backoff for transient timeouts or `429` responses (a single network blip fails the whole gate run), runs fully serially with no concurrency, and `checkResumePdf` only checks status/content-type, not that the PDF body has real bytes.
+  evidence: Raised across both review passes on Story 6.2; each is a real robustness/performance gap in a manually-invoked, occasionally-run script, not a correctness bug affecting the current real link set, so none blocked the story.
+
+- source_spec: `_bmad-output/implementation-artifacts/spec-6-2-pre-launch-link-check-crawl.md`
+  summary: The Shikigami Agent SDK GitHub repository (`https://github.com/Glitch-guy0/shikigami-agent-sdk`) genuinely 404s — confirmed live via both the new link-check script and an independent `curl` request.
+  evidence: This is real shipped content (a Story 6.1-audited "clean" project link) now proven dead by Story 6.2's crawl tool; needs a human decision (make the repo public, fix the URL, or fix the slug) that this workflow cannot make unattended.
