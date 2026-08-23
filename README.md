@@ -1,6 +1,6 @@
 # Backend Engineer • RAG & AI Infrastructure
 
-Building production-grade AI systems and distributed backend infrastructure.
+Building AI systems and distributed backend infrastructure.
 
 ## Featured Work
 
@@ -22,7 +22,7 @@ Cloud: AWS • Docker • Vercel
 
 ## About
 
-Backend engineer focused on building scalable AI infrastructure and distributed systems. Currently at Brigosha.
+Backend engineer focused on building scalable AI infrastructure and distributed systems.
 
 Interested in: RAG systems • LLM infrastructure • Distributed backend architecture • Production systems thinking
 
